@@ -1,27 +1,31 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-
 import '@fontsource/ibm-plex-sans/400.css';
 import '@fontsource/ibm-plex-sans/500.css';
 import '@fontsource/ibm-plex-sans/600.css';
+// import { createTheme } from '@mui/material';
+// import { MyButton } from './components/inputs/MyButton.tsx';
+import Button from '@mui/material/Button';
+import chilis from './assets/chilis.gif';
+
+// const theme = createTheme({
+//   palette: {
+//     primary: {
+//       main: "#9c27b0",
+//     }
+//   }
+// });
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
+      <img src={chilis} alt="hi and welcome to chilis" />
+      <h1 className="my-8">Hi, welcome to chilis</h1>
+      <Button variant="contained" href="https://www.youtube.com/watch?v=bs53JQTuEc0" target="_blank">Yabba dabba doo</Button>
+      {/* <MyButton>helloo</MyButton> */}
+      {/* <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
@@ -31,7 +35,7 @@ function App() {
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p>
+      </p> */}
     </>
   )
 }
