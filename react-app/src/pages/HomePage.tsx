@@ -1,14 +1,17 @@
 import { Link } from 'react-router-dom'
-import Button from '@mui/material/Button'
 import chilis from '../assets/chilis.gif'
+import { Button } from '../components/ui/button.tsx';
 
 export const HomePage = () => {
   return (
-    <>
-      <img src={chilis} alt="hi and welcome to chilis" />
-      <h1 className="my-8">Hi, welcome to chilis</h1>
-      <Button variant="contained" href="https://www.youtube.com/watch?v=bs53JQTuEc0" target="_blank">Yabba dabba doo</Button>
-      <Button><Link to="/sandbox">Go to sandbox</Link></Button>
-    </>
+    <section className="flex flex-col items-center pt-16">
+      <div className="max-w-lg">
+        <img src={chilis} alt="hi and welcome to chilis" />
+        <h1 className="text-3xl font-semibold my-8">Hi, welcome to chilis</h1>
+        <Button>
+          <a href="https://www.youtube.com/watch?v=bs53JQTuEc0" target="_blank">Yabba dabba doo</a>
+        </Button>
+      </div>
+    </section>
   );
 }
