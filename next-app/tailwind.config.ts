@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from "tailwindcss"
+
+const config = {
   darkMode: ["class"],
   content: [
     './pages/**/*.{ts,tsx}',
@@ -7,6 +8,7 @@ module.exports = {
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
 	],
+  prefix: "",
   theme: {
     container: {
       center: true,
@@ -20,7 +22,7 @@ module.exports = {
       mono: ['IBM Plex Mono', 'monospaced'],
     },
     fontSize: {
-      xs: ['0.625rem', '1.5rem'],
+      xs: ['0.75rem', '1.5rem'],
       sm: ['0.875rem', '1.5rem'],
       md: ['1rem', '1.5rem'],
       lg: ['1.25rem', '1.25rem'],
@@ -30,6 +32,11 @@ module.exports = {
       '4xl': ['3rem', '1.1rem'],
       '5xl': ['4rem', '1.1rem'],
       '6xl': ['6rem', '1.1rem'],
+    },
+    fontWeight: {
+      '400': '400',
+      '500': '500',
+      '600': '600',
     },
     extend: {
       colors: {
@@ -74,12 +81,12 @@ module.exports = {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: 0 },
+          from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: 0 },
+          to: { height: "0" },
         },
       },
       animation: {
@@ -89,4 +96,6 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+} satisfies Config
+
+export default config
