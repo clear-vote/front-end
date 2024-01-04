@@ -1,4 +1,5 @@
-# react-app
+# next-app
 Front-end for ClearVote app
 
-cd into front-end
+cd next-app
+npx next dev
