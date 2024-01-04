@@ -17,6 +17,27 @@ const config = {
         "2xl": "1400px",
       },
     },
+    fontFamily: {
+      sans: ['IBM Plex Sans', 'sans-serif'],
+      mono: ['IBM Plex Mono', 'monospaced'],
+    },
+    fontSize: {
+      xs: ['0.75rem', '1.5rem'],
+      sm: ['0.875rem', '1.5rem'],
+      md: ['1rem', '1.5rem'],
+      lg: ['1.25rem', '1.25rem'],
+      xl: ['1.5rem', '1.15rem'],
+      '2xl': ['2rem', '1.1rem'],
+      '3xl': ['2.25rem', '1.1rem'],
+      '4xl': ['3rem', '1.1rem'],
+      '5xl': ['4rem', '1.1rem'],
+      '6xl': ['6rem', '1.1rem'],
+    },
+    fontWeight: {
+      '400': '400',
+      '500': '500',
+      '600': '600',
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
