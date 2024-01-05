@@ -1,60 +1,32 @@
 import Image from 'next/image'
+import ScrollUp from '@/components/scrollup'
 import { Button } from "@/components/ui/button"
-import SiteBar from '@/components/ui/sitebar'
+import { SearchInput } from '@/components/ui/searchinput'
+import { Separator } from "@/components/ui/separator"
+
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlay } from '@fortawesome/free-solid-svg-icons'
 
 
 // import chilis from '../assets/chilis.gif'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col">
-      <SiteBar />
-      <section className="flex flex-col items-center pt-16">
-        <div className="max-w-lg">
-          <Image
-              src="/chilis.gif"
-              width={1200}
-              height={1200}
-              alt="hi and welcome to chilis"
-            />
-          <h1 className="text-3xl font-semibold my-8">Hi, welcome to chilis</h1>
-          <Button>
-            <a href="https://www.youtube.com/watch?v=bs53JQTuEc0" target="_blank">Yabba dabba doo</a>
-          </Button>
-        </div>
+    <main className="min-h-screen mt-32 flex flex-col items-center">
+      <ScrollUp/>
+      <section className="w-full max-w-lg text-center">
+        <h1>Welcome to ClearVote</h1>
+        <p className="text-lg mt-2">Stay up-to-date during local, off-cycle elections and understand who you are voting for.</p>
       </section>
-      <section className="m-8 flex flex-col">
-        <h3 className="mb-1">Button variants</h3>
-
-        <div className="flex flex-row gap-2 mb-2">
-          <Button variant="primary" size="sm">Primary</Button>
-          <Button variant="secondary" size="sm">Secondary</Button>
-          <Button variant="subtle" size="sm">Subtle</Button>
-          <Button variant="outline" size="sm">Outline</Button>
-          <Button variant="ghost" size="sm">Ghost</Button>
-          <Button variant="destructive" size="sm">Destructive</Button>
-          <Button variant="link" size="sm">Link</Button>
+      <section className="w-full max-w-lg flex flex-col items-center pt-16 gap-4">
+        <SearchInput type="search" placeholder="Enter your voting address..." className="w-full " />
+        <div className="w-full flex items-center gap-2">
+          <Separator className="grow shrink" />
+          <small>OR</small>
+          <Separator className="grow shrink" />
         </div>
-
-        <div className="flex flex-row gap-2 mb-2">
-          <Button variant="primary">Primary</Button>
-          <Button variant="secondary">Secondary</Button>
-          <Button variant="subtle">Subtle</Button>
-          <Button variant="outline">Outline</Button>
-          <Button variant="ghost">Ghost</Button>
-          <Button variant="destructive">Destructive</Button>
-          <Button variant="link">Link</Button>
-        </div>
-
-        <div className="flex flex-row gap-2 mb-2">
-          <Button variant="primary" size="lg">Primary</Button>
-          <Button variant="secondary" size="lg">Secondary</Button>
-          <Button variant="subtle" size="lg">Subtle</Button>
-          <Button variant="outline" size="lg">Outline</Button>
-          <Button variant="ghost" size="lg">Ghost</Button>
-          <Button variant="destructive" size="lg">Destructive</Button>
-          <Button variant="link" size="lg">Link</Button>
-        </div>
+        <Button variant="subtle">See Example <FontAwesomeIcon icon={faPlay} className="ml-2" /> </Button>
       </section>
     </main>
   )
