@@ -1,5 +1,7 @@
 import * as React from "react"
-import { SearchIcon } from 'lucide-react';
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 import { cn } from "@/lib/utils";
 
@@ -23,10 +25,10 @@ const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(
           className,
         )}
       >
-        <SearchIcon size={16} />
+        <FontAwesomeIcon icon={faMagnifyingGlass} />
         <input
           type="search"
-          className="ml-2 w-[calc(100%-2.25rem)] placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+          className="ml-3 w-[calc(100%-2.5rem)] placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50"
           ref={ref}
           {...props}
         />
