@@ -5,8 +5,9 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 
-export default function LocationPicker() {
+//TODO: Add props
 
+export default function LocationPicker() {
   return (
     <div className="bg-card hover:bg-background elevation-1 border border-1 rounded-lg px-4 py-3 flex justify-between items-center">
       <div className="flex items-center gap-3">
