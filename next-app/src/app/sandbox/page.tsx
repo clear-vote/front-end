@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import ScrollUp from '@/components/scrollup'
+import ScrollUp from '@/lib/scrollup'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -9,12 +9,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import SiteBar from '@/components/ui/sitebar'
-import { SearchInput } from '@/components/ui/searchinput'
+import SiteBar from '@/components/custom/sitebar'
+import { SearchInput } from '@/components/custom/searchinput'
 import { Mail } from "lucide-react"
 
 
-export default function Home() {
+export default function Sandbox() {
   return (
     <main className="min-h-screen mt-32 flex flex-col gap-16 items-center">
       <ScrollUp/>

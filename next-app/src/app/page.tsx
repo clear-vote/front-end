@@ -1,7 +1,8 @@
 import Image from 'next/image'
-import ScrollUp from '@/components/scrollup'
+import Link from 'next/link'
+import ScrollUp from '@/lib/scrollup'
 import { Button } from "@/components/ui/button"
-import { SearchInput } from '@/components/ui/searchinput'
+import { SearchInput } from '@/components/custom/searchinput'
 import { Separator } from "@/components/ui/separator"
 
 import '@fortawesome/fontawesome-svg-core/styles.css'
@@ -26,7 +27,9 @@ export default function Home() {
           <small>OR</small>
           <Separator className="grow shrink" />
         </div>
-        <Button variant="subtle">See Example <FontAwesomeIcon icon={faPlay} className="ml-2" /> </Button>
+        <Button variant="subtle" asChild>
+          <Link href="/myballot">See Example<FontAwesomeIcon icon={faPlay} className="ml-2" /></Link>
+        </Button>
       </section>
     </main>
   )

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { IBM_Plex_Sans } from 'next/font/google'
 import { IBM_Plex_Mono } from 'next/font/google'
-import SiteBar from '@/components/ui/sitebar'
+import SiteBar from '@/components/custom/sitebar'
 // import ScrollUp from '@/components/scrollup'
 import './globals.css'
 

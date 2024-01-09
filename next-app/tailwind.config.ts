@@ -22,16 +22,16 @@ const config = {
       mono: ['IBM Plex Mono', 'monospaced'],
     },
     fontSize: {
-      xs: ['0.75rem', '1.5rem'],
-      sm: ['0.875rem', '1.5rem'],
-      md: ['1rem', '1.5rem'],
-      lg: ['1.25rem', '1.5rem'],
-      xl: ['1.5rem', '1.15rem'],
-      '2xl': ['2rem', '1.1rem'],
-      '3xl': ['2.25rem', '1.1rem'],
-      '4xl': ['3rem', '1.1rem'],
-      '5xl': ['4rem', '1.1rem'],
-      '6xl': ['6rem', '1.1rem'],
+      xs: ['0.75rem', '1.5em'],
+      sm: ['0.875rem', '1.5em'],
+      md: ['1rem', '1.5em'],
+      lg: ['1.25rem', '1.5em'],
+      xl: ['1.5rem', '1.15em'],
+      '2xl': ['2rem', '1.1em'],
+      '3xl': ['2.25rem', '1.1em'],
+      '4xl': ['3rem', '1.1em'],
+      '5xl': ['4rem', '1.1em'],
+      '6xl': ['6rem', '1.1em'],
     },
     fontWeight: {
       '400': '400',
@@ -52,6 +52,10 @@ const config = {
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
+        },
+        disabled: {
+          DEFAULT: "hsl(var(--disabled))",
+          foreground: "hsl(var(--disabled-foreground))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
