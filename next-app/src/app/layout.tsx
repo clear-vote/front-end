@@ -28,9 +28,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={plex.className}>
-      <head>
+      {/* <head>
         <script src="https://kit.fontawesome.com/66c71971cc.js" crossOrigin="anonymous"></script>
-      </head>
+      </head> */}
       {/* <ScrollUp/> */}
       <body className="bg-background">
         <header className="fixed top-0 w-full">
