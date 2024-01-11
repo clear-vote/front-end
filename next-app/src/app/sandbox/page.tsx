@@ -10,7 +10,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import SiteBar from '@/components/custom/sitebar'
-import { SearchInput } from '@/components/custom/searchinput'
+import { SearchInput } from '@/components/custom/search-input'
 import { Mail } from "lucide-react"
 
 

@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ScrollUp from '@/lib/scrollup'
 import { Button } from "@/components/ui/button"
-import { SearchInput } from '@/components/custom/searchinput'
+import { SearchInput } from '@/components/custom/search-input'
 import { Separator } from "@/components/ui/separator"
 
 import '@fortawesome/fontawesome-svg-core/styles.css'

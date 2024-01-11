@@ -2,8 +2,8 @@ import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import LocationPicker from '@/components/custom/locationpicker'
-import DateCard from '@/components/custom/datecard'
+import LocationPicker from '@/components/custom/location-picker'
+import DateCard from '@/components/custom/date-card'
 import Contests from '@/components/custom/contests'
 
 export default function MyBallotPage() {
