@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@babel/helper-module-imports": "^7.22.15",
     "@fontsource/ibm-plex-sans": "^5.0.18",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
@@ -19,6 +20,9 @@
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tabs": "^1.0.4",
+    "@vercel/blob": "^0.19.0",
+    "@vercel/kv": "^1.0.1",
+    "babel-plugin-macros": "^3.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "lucide-react": "^0.304.0",
@@ -26,9 +30,11 @@
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.2.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "vercel": "^33.1.0"
   },
   "devDependencies": {
+    "@babel/plugin-transform-typescript": "^7.23.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

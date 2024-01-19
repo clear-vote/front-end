@@ -1,0 +1,30 @@
+"election": {
+	"election_info": {
+		"election_id": 1,
+		"election_type": "primary",
+		"voting_start": 20230714,
+		"register_by": 20230724,
+		"voting_end": 20230801,
+	},
+	"generated_for": "zipcode(?)",
+	"generated_on": 20240117,
+	"contests_by_boundary": [
+		{
+			"boundary": "King County, WA",
+			"boundary_type": "county",
+			"titles": [
+				{
+					"title_name": "County Assessor",
+					"title_info": "Short description...",
+					"title_description": "Long description...",
+					"candidates": [...],
+				},
+				{...},
+			]
+		},
+		{
+			"boundary": "Seattle",
+			"boundary_type": "city",
+		},
+	],
+}

@@ -1,0 +1,284 @@
+[
+    {
+        "election_id": 1,
+        "election_type": "primary",
+        "voting_start": 20230714,
+        "register_by": 20230724,
+        "voting_end": 20230801,
+        "contests": [
+            {
+                "position_info": {
+                    "boundary_type": "county",
+                    "title_string": "county assessor",
+                    "title_info": "Assessors assess properties to determine their value.\nWashington county assessors assess the value of real estate within the county for property tax purposes.\nAll county assessors in Washington State can serve terms of 4-year terms with no term limits.",
+                    "title_description": "Washington county assessors appraise property values based on current market trends, property characteristics, and local property sales data, collaborating with other local government offices, such as the treasurer or tax collector, in the administration of property taxes.\nThey keep detailed records of each property, including descriptions, measurements, and valuations, and provide information and assistance to the public regarding property assessment, property tax liabilities, and exemption qualifications.\n\nThey approve property tax exemptions and deductions for eligible property owners, such as seniors, veterans, or those with disabilities.\nThey handle appeals from property owners who disagree with their property assessments.\nThey prepare and certify the annual tax roll —the official list of all taxable properties in the county.\nFinally, county assessors ensure that assessments are conducted following state and local laws, regulations, and guidelines.",
+                    "area_name": "king",
+                    "district_char": null,
+                    "position_char": null
+                },
+                "candidate_info": [
+                    {
+                        "name": "John Wilson",
+                        "image": "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",
+                        "website": "www.electjohnwilson.com",
+                        "education": "Graduated from University of Washington with dual major in journalism and political science",
+                        "occupation": "Assessor, King County Department of Assessments",
+                        "statement": "When King County voters elected me, I promised to be an “activist Assessor.” I have been. We have fought to protect senior homeowners from soaring values, make it easier to get your refund, and see how much that ballot measure is going to cost. But more should be done. That’s why I am asking for your vote again. I’ll fight for a truly fair and equitable property tax system. We’re in a housing crisis. Housing affordability threatens everyone – whether homeowners, seniors, renters or small business owners. Our homeless crisis leaves women and children to sleep out on the street because there is no room in the shelter. An “activist” Assessor can help. We’ve gone twice to Olympia to reform the senior and disabled property tax relief program. Now thousands of our neighbors can stay in their homes. Responding to our homelessness crisis, we found surplus public and vacant private property, which can be used for housing solutions. We have identified the land. We should put it to use. The housing shortage makes homes and apartments in King County so expensive. Smarter density can bring us more housing at a more affordable price. But our property tax system was never designed to handle annual assessed value increases of up to just over 50%. And while actual taxes, including those voter approved, are considerably less, in these inflationary times it literally hits home. I’ve been a tireless taxpayer champion. Homeowners, renters, and small businesses deserve a tax break. I'm working with Assessors statewide to save everyday people real money without gutting vital local services. I am proud to be endorsed by Democrats and Republicans, labor and business, and folks in Seattle and the suburbs. While much has been done, we must do more. I ask for your vote.",
+                        "statement_source": "King County voter pamphlet",
+                        "pfms": [
+                            ["Wellbeing", 13],
+                            ["Homelessness", 0],
+                            ["Emergency", 0],
+                            ["Justice", 11],
+                            ["Security", 11],
+                            ["Transit", 10],
+                            ["Infrastructure", 0],
+                            ["Economics", 11],
+                            ["Community", 15],
+                            ["Environment", 0],
+                            ["Development", 11],
+                            ["Zoning", 0],
+                            ["Accountability", 13]
+                        ],
+                        "politigram_quotes": [
+                            ["community", "We have fought to protect senior homeowners from soaring values, and Responding to our homelessness crisis, we found surplus public and vacant private property, which can be used for housing solutions."],
+                            ["works", "We’ve gone twice to Olympia to reform the senior and disabled property tax relief program."],
+                            ["environment", "Not directly addressed in the statement."],
+                            ["youth", "Our homeless crisis leaves women and children to sleep out on the street because there is no room in the shelter."],
+                            ["accountability", "I promised to be an 'activist Assessor.' I have been."],
+                            ["economy", "The housing shortage makes homes and apartments in King County so expensive, and Homeowners, renters, and small businesses deserve a tax break."],
+                            ["security", "Not directly addressed in the statement."]
+                        ]
+                    }
+                ]
+            },
+            {
+                "position_info": {
+                    "boundary_type": "county",
+                    "title_string": "county director of elections",
+                    "title_info": "Not yet written",
+                    "title_description": "Not yet written",
+                    "area_name": "king",
+                    "district_char": null,
+                    "position_char": null
+                },
+                "candidate_info": [
+                    {
+                        "name": "Julie Wise",
+                        "image": null,
+                        "website": "www.juliewise.com",
+                        "education": "Proud Graduate of Green River Community College; Certified Washington State and National Election Administrator",
+                        "occupation": "Current King County Director of Elections and 23-year election administrator",
+                        "statement": "Your confidence in our elections is crucial - to me, to my team and to the future of democracy. I am committed to removing barriers to voting and work each day to ensure our elections are secure and accessible. I have spent the last 23 years as an election administrator and bring the experience and depth of knowledge needed to run successful elections for all 1.4 million voters in our county.  Since taking office, I have overseen more than 30 elections, earning the trust and respect of voters and colleagues from across the political spectrum. I bring a passion for fostering an inclusive and transparent democratic process. Under my leadership, both our voting system and community outreach have been modernized to enhance accessibility and voter participation. The Voter Education Fund has set a new model of community partnership by providing funds and training to community organizations doing non-partisan voter registration and education in historically marginalized communities. I’ve increased the number of ballot drop boxes from 10 to nearly 80 and advocated in Olympia and in D.C. to ensure every person has meaningful access to their right to vote. I have brought in experts from the Department of Homeland Security to audit our practices and increase security. I have partnered with leaders of both political parties to ensure consistent, bipartisan oversight of our elections. We have developed an incredible team of trained, professional election administrators who work tirelessly to ensure absolutely every ballot has been counted and is accounted for. As we move forward, I remain committed to improving our voting experience and maintaining a steadfast, transparent, and nonpartisan department. Thank you for participating in our democratic process and exercising your right to vote. I ask for your vote and your continued support as we forge a path forward together.",
+                        "statement_source": "King County voter pamphlet"
+                    },
+                    {
+                        "name": "Doug Basler",
+                        "image": null,
+                        "website": "dougbasler.com",
+                        "education": "Central Valley HS Spokane Valley, WA. Multnomah University Portland, OR",
+                        "occupation": "President at Prologue Digital Inc",
+                        "statement": "Democrats, Republicans, and Independents all agree on one thing: Our elections need to be transparent, secure, and publicly verified. It’s no secret that a large cross section of the voting public has questions regarding the overall election process. Doug Basler is committed to restore trust in our voting system through responsible transparency and by actively working to include citizen oversight, balanced audits of our systems and processes, and properly maintained voter registration rolls so that everyone is confident that our elections are free, fair, and verified. Doug Basler has been a corporate business leader for many years and is uniquely qualified to lead and properly administrate the team of professionals who work at King County Elections to ensure every vote is counted exactly as the voter intended. Election integrity is key to maintaining our citizen-led democratic republic. I am committed to be sure that every aspect of the election process is overseen with energy and professionalism so that King County Elections will be viewed nationwide as a pristine example of the way elections should be held. I will work to quickly answer public requests for information while maintaining strict voter anonymity and privacy. If you believe that our elections are worth rigorous oversight, vote for Doug Basler. If you believe that every legal vote should be counted exactly as the voter intended, vote for Doug Basler. If you believe that citizen oversight is critical to maintaining the integrity of our elections, vote for Doug Basler. If you believe that elections should be transparent, secure, and publicly verified, vote for Doug Basler. Please vote for Doug Basler for Director of Elections in King County.",
+                        "statement_source": "King County voter pamphlet"
+                    }
+                ]
+            },
+            {
+                "position_info": {
+                    "boundary_type": "county council",
+                    "title_string": "county council",
+                    "title_info": "Not yet written",
+                    "title_description": "Not yet written",
+                    "area_name": "king",
+                    "district_char": "4",
+                    "position_char": null
+                },
+                "candidate_info": [
+                    {
+                        "name": "Jorge L. Barón",
+                        "image": null,
+                        "website": "www.electjorgebaron.com",
+                        "education": "J.D., Yale Law School; Bachelor’s in Economics and History, Duke University",
+                        "occupation": "Executive Director, Northwest Immigrant Rights Project (2008-2023)",
+                        "statement": "For the past 17 years, I have been at the forefront of the fight for immigrant rights and working to serve marginalized communities. From successfully halting deportations after Trump’s travel ban to serving on the State Taskforce on Use of Deadly Force in Policing, I have consistently made a tangible impact by working alongside diverse communities to develop solutions. Now, I aim to bring this same commitment to equity and justice to the King County Council. My vision for King County is rooted in our shared values of integrity and service. I will invest in preventative and data-driven approaches to improve public safety; climate resilience initiatives; universally affordable childcare; expanded behavioral health services; and a robust transportation system. I am determined to develop affordable and dignified housing for all and lead on comprehensive strategies to support our unhoused neighbors. The Seattle Times: “The challenges require bold, creative leadership from the Metropolitan King County Council. Barón has the experience, skills and passion needed to help craft policy for county government. … Barón’s experience with effecting change for marginalized communities gives him the edge in this race.” The Stranger: “Jorge Barón’s nearly two decades of battle on behalf of immigrants, who compose nearly one quarter of King County’s population, stood out above his competition. … Vote Barón.” My wife and I have raised our three children in Queen Anne, and are proud public school parents. I would be honored to earn your vote. Endorsed by The Seattle Times, The Stranger, Pro-Choice Washington, Washington Conservation Action; labor unions representing healthcare, homecare, childcare, maritime, and grocery workers, among others; business and community leaders; elected officials including Congresswoman Pramila Jayapal, Senator Noel Frame, Representatives Liz Berry, Frank Chopp, Darya Farivar, Nicole Macri, Cindy Ryu; King County Councilmembers Jeanne Kohl-Welles, Claudia Balducci, Girmay Zahilay; and more.",
+                        "statement_source": "King County voter pamphlet"
+                    },
+                    {
+                        "name": "Sarah Reyneveld",
+                        "image": null,
+                        "website": "sarahreyneveld.com",
+                        "education": "Law Degree and Master’s Degree in Public Administration, University of Washington; BA, Smith College",
+                        "occupation": "Managing Assistant Attorney General, Washington State Attorney General’s Office",
+                        "statement": "I’m an Assistant Attorney General who protects vulnerable communities, stands up to opioid manufacturers, and holds polluters accountable. I’ve spent my 20-year public service career building coalitions and delivering results. I’m a public school mom, union member, transit rider, and 25-year District 4 neighbor running for King County Council because we need bold and transformative action to urgently improve public safety, and make real progress on homelessness, affordable housing, transit, and climate justice.  I’m the only candidate in this race committed to protecting our public safety budget and I'll improve staffing and upstream solutions that reduce crime and gun violence. I’ll deliver on a regional plan to reduce homelessness by increasing accountability and rapidly expanding affordable housing and emergency shelter. I'll build on my work as Chair of the County Women’s Advisory Board expanding services for survivors of gender-based violence, childcare, behavioral, and reproductive healthcare. I’ll champion reliable and safe transit, bold climate action, and protect forests and Puget Sound. As King County faces revenue shortfalls, I’ll seek progressive revenue solutions.   “Sarah is a proven progressive leader and advocate who has stood up to powerful interests and protected our environment, working people…” – Attorney General Bob Ferguson “Sarah’s track record advancing progressive policy and budget solutions, and work with communities across King County, make her the clear choice.” – County Councilmember Jeanne Kohl-Welles “Sarah will be a bold progressive leader on the Council who is unafraid to….do the real work of problem solving...” – Councilmember Girmay Zahilay Endorsements: Washington Conservation Action; Women’s Political Caucus; 36th, 46th, 32nd, County Democrats; MLK Labor Council, Machinists, Building Trades, State Employee Unions; Alliance for Gun Responsibility “Approved Candidate”; AG Ferguson; Lands Commissioner Franz; Treasurer Pellicciotti; County Councilmembers Kohl-Welles, Zahilay, Dembowski, Upthegrove, Perry, Phillips (fmr); Port Commissioners Mohamed, Calkins, Cho, Felleman. I’d appreciate your support!",
+                        "statement_source": "King County voter pamphlet"
+                    }
+                ]
+            },
+            {
+                "position_info": {
+                    "election_id": 2,
+                    "boundary_type": "county",
+                    "title_string": "port commissioner (at large)",
+                    "title_info": "Not yet written",
+                    "title_description": "Not yet written",
+                    "area_name": "seattle",
+                    "district_char": null,
+                    "position_char": "5"
+                },
+                "candidate_info": [
+                    {
+                        "name": "Fred Felleman",
+                        "image": null,
+                        "website": "FredforPort.com",
+                        "education": "MSc. Fisheries Biology, University of Washington. B.S. Psychology, University of Michigan.",
+                        "occupation": "Seattle Port Commissioner 2016 – present [Past President]; Environmental Consultant.",
+                        "statement": "It’s been an honor to serve King County residents for the past 7.5 years on the Seattle Port Commission. I’m running for a third term to continue my environmental leadership advancing a just and inclusive transition to a clean energy economy that generates living wage careers.          My public service is guided by a triple bottom line: commerce, community, and climate.  I’m committed to expanding environmental and economic justice, especially for near-port communities and small, minority owned businesses.  My experience is needed to exercise policy direction over a fast-growing airport, homeport for Alaska cruise ships and fishing fleet, marinas, parks, and marine cargo Alliance with the Port of Tacoma.         The Port generates 121,000 jobs.  The airport and seaport have won customer service awards even during major construction.  But Port activities also impact communities and the climate. That’s why I’m leading initiatives to electrify seaport and airport operations and transition to alternative fuels for trucks, ships, and planes.  I’m also working to protect parks, advance bicycle safety and Duwamish River cleanup.         I’ll continue reducing the Port’s carbon footprint by directing significant state and federal funding for clean energy projects; Inspiring youth to pursue Port-related careers through apprenticeships and internships; and expanding partnerships with Tribes and the Seattle Aquarium for projects from kelp to killer whales and ecotourism. With your support, I’ll continue to champion Port policies rooted in fiscal responsibility, ecological integrity, and social equity.  I respectfully ask for your vote.         Endorsed By: Seattle Times, The Stranger, MLK Labor Council, Seattle Mayor Bruce Harrell, Governor Inslee, Attorney General Ferguson, King County Executive Constantine, County Councilmembers Balducci, Zahilay, Upthegrove, McDermott, Kohl-Welles, Dembowski, Seattle Port Commissioners Mohamed, Hasegawa and Cho, Senators Saldana and Keiser, Sierra Club, King County Democrats and Republicans, Puget Sound Pilots, Pacific Maritime Shipping Association, Planned Parenthood.",
+                        "statement_source": "King County voter pamphlet"
+                    },
+                    {
+                        "name": "Jesse Tam",
+                        "image": null,
+                        "website": "www.electjessetam.com",
+                        "education": "MBA, City University of Seattle; BA Marketing, Boise State University; UW Pacific Coast  Banking School",
+                        "occupation": "Mega Pacific Holding, Managing Director; Business Consultant",
+                        "statement": " The port is our gateway to the world and economic engine in our region. Since 1911, it has promoted economic opportunities and quality of life by advancing trade, commerce, travel, and job creation in an accountable and responsible manner. As a resident of King County for four decades, I’ve experienced the port’s impacts. The port has failed us; environmental issues are hurting low-income communities in South County and it’s time to set a new course with integrity.   We have shared goals: A thriving economy, a cleaner environment, increased family-wage jobs, and a fair and equitable society. We must stop the path of mismanagement. With my extensive career in banking, finance, and real estate, I am ready to steer the port in the right direction as a steward of your hard-earned money.  As an immigrant who arrived with $300, I’ve worked my way up from the mailroom to the boardroom, I’ve founded two Washington state community banks to create jobs for small, women- and minority-owned businesses. I am a staunch promoter of fiscal responsibility with accountability, working closely with stakeholders, labor unions, industry, and trade partners to regain trust in our port. I will promote transitioning from fossil fuels to sustainable green energy.   If elected, I will bring engaging management and open financial positions with transparency to our port community. This will enable us to focus on our dual mission: Generating family-wage jobs and safeguarding our environment. Vote for a stronger, cleaner, and trusted Seattle Port.   Endorsements: ATU Local 587, former WA State Governor Gary Locke, King County Assessor John Wilson, Bellevue Mayor Lynne Robinson, Sen. Claire Wilson, Rep. Jamila Taylor, Renton City Councilmembers Ruth Perez-Ralston and James Alberson, former King/Seattle Councilmember Jan Drago, former Seattle Councilmember David Della. Thank you for your support.",
+                        "statement_source": "King County voter pamphlet"
+                    }
+                ]
+            },
+            {
+                "position_info": {
+                    "boundary_type": "city",
+                    "title_string": "city council (at large)",
+                    "title_info": "Not yet written",
+                    "title_description": "Not yet written",
+                    "area_name": "seattle",
+                    "district_char": null,
+                    "position_char": "5"
+                },
+                "candidate_info": [
+                    {
+                        "name": "Janice Zahn",
+                        "image": null,
+                        "website": "WWW.JANICEZAHN.ORG",
+                        "education": "B.S. and M.S. Civil Engineering and Masters of Public Administration, University of Washington; Leadership Eastside",
+                        "occupation": "Bellevue Councilmember; Chief Engineer, Port of Seattle; Former Transportation Commissioner",
+                        "statement": "Re-elect Janice, a proven solutions-oriented leader. As a mom of Bellevue Schools' graduates and 30-year neighbor, community safety will always be a top priority. On the Council, I’ve advocated for state funding and regional collaboration to get results on homelessness, behavioral health, and substance-use treatment. I’ve also secured funding for necessary police, fire, and behavioral health resources to keep every neighbor safe.  As your Councilmember, I’ve prioritized affordable housing at every income level for seniors and working families, and advanced safe, walkable, and connected neighborhoods through Vision Zero, small businesses support, and more parks and open spaces. I will continue to lead on environmental stewardship, preserve tree canopy, advance climate goals, and keep Bellevue beautiful.  As an immigrant, I have built bridges — engaged our neighbors, promoted small businesses, connected communities, while improving transparency and access. With your continued support, we will ensure a thriving, sustainable, and welcoming Bellevue for all, together.  Broad Support: Congressmembers Smith & DelBene; Attorney General Ferguson; former Governor Locke; Senators Kuderer, Wellman; Representatives Senn, Slatter, Thai, Walen; County Executive Constantine & Councilmember Balducci; Mayor Robinson; Bellevue Firefighters; Affordable Housing Council; Labor unions; Associated General Contractors; Transportation for Washington; Realtors; Democrats; Sierra Club; Planned Parenthood; more!",
+                        "statement_source": "King County voter pamphlet"
+                    },
+                    {
+                        "name": "Betsi Hummer",
+                        "image": null,
+                        "website": "www.betsiforbellevue.com",
+                        "education": "Bellevue High School. Seattle University. University of Puget Sound (MBA). Bellevue Essentials Graduate.",
+                        "occupation": "Retired from Seattle Lumber Company - Sales and Marketing",
+                        "statement": "As a Bellevue native, my leadership on both the East Bellevue Community Council and Lake Hills Neighborhood Association has been marked by listening to neighborhood needs, then advocating for them. My passion is “making connections that make a difference.” My expertise in city land use has prepared me to advocate for economic growth that does not come at the expense of affordable housing, public transportation, and safe streets. I am dedicated to promoting public safety and addressing systemic root causes of crime. My experience as a member of the Police Advisory Council for Latinas and Latinos, and the Bellevue Community Police Academy has prepared me to understand these issues. I am committed to transparency; ensuring everyone has a voice in decisions affecting their neighborhoods. My collaborative approach, leadership skills, and community service passion, make me ideal for Bellevue. My long-term involvement in the community demonstrates my commitment to serving, and ensuring Bellevue remains a place where people want to live, work, and raise their families. Endorsements: Bellevue Police Officer’s Guild (BPOG); Council member Conrad Lee; Former Bellevue School Superintendent Howard Johnson; Former Transportation Commissioner Vic Bishop; Retired Parks Director Lee Springgate; “Save Coal Creek” Sally Lawrence.",
+                        "statement_source": "King County voter pamphlet"
+                    }
+                ]
+            },
+            {
+                "position_info": {
+                    "election_id": 2,
+                    "boundary_type": "city council",
+                    "title_string": "city council",
+                    "title_info": "Not yet written",
+                    "title_description": "Not yet written",
+                    "area_name": "seattle",
+                    "district_char": "2",
+                    "position_char": null
+                },
+                "candidate_info": [
+                    {
+                        "name": "Tammy J. Morales",
+                        "image": null,
+                        "website": "votefortammy.com",
+                        "education": "Master of Science, Community and Regional Planning, UT Austin; BA, Anthropology, UT San Antonio",
+                        "occupation": "Current Seattle City Councilmember, former Rainier Beach Action Coalition organizer",
+                        "statement": "It’s been an honor to serve as your Councilmember, and I’m running again so that, together, we can continue to build a future that includes all of us. I’ve got the experience to organize community-centered approaches and I secure the investments to match. I deliver on progressive values rather than simply profess them. My office has a proven track record of taking action. I committed to investing in historically under-funded schools, so I funded mental health and leadership programs in Southend schools. I said I would prevent displacement, so we won tenant protections, monumental worker protections—like paid sick leave for gig workers—and rent control for small businesses. I secured permanent funding for community-driven development, and for the Green New Deal. I envision housing abundance, affordability, and vibrant small businesses within reach of all generations who stay rooted in their community. Children with full stomachs and single mothers with full wallets. Community networks preventing violence rather than only reacting to it. I’ve only just begun building alternatives to punishment and incarceration—especially for our Black and brown neighbors, who suffer from the paradox of over-policing and under-policing. We all deserve to feel safe in our neighborhoods. As a mom with two kids in Seattle Public Schools, it’s important that all our children feel safe, protected, and cared for. We’ve only begun that work by investing in the resources District 2 needs to improve our community health, joy, and safety. Thank you for electing me to serve D2’s vibrant communities. I hope to earn your vote for re-election. Proudly endorsed by The Stranger, MLK Labor, King County Dems, Progreso Latino, Rep. Jayapal, Sen. Saldaña, and over 40 more.",
+                        "statement_source": "King County voter pamphlet"
+                    },
+                    {
+                        "name": "Tanya Woo",
+                        "image": null,
+                        "website": "www.votetanyawoo.com",
+                        "education": "University of Washington, Bachelors of Arts in Communication",
+                        "occupation": "Business Owner, Community Advocate",
+                        "statement": "I grew up in Beacon Hill, work at my family business in the Chinatown International District and now live in Rainier Beach.  I’ve seen how South Seattle has changed, and I’ve seen what happens to neighborhoods who don’t have a voice. I want to change that. As a community advocate and proven leader I have fought against continued discrimination from the city towards one of the most endangered neighborhoods in America, and I’ve seen that fighting for our voice and community based solutions is a fight we can win. I'll bring that same passion to fight for all of south Seattle. We can have better public safety. Every week, my watch group works side by side with community and unhoused neighbors providing mutual aid and helping connect people to essential services. I have administered Narcan, CPR and fought for our most vulnerable, marginalized communities. We need a balanced approach that invests in community programs and works in collaboration with city agencies.  We can have more affordable housing while fighting displacement and gentrification. My family renovated the historic Louisa Hotel into workforce housing which only charges residents a percentage of their income so nobody is charged rent they cannot afford. I have the experience to build more homes and social housing.  Our community is tired of elected officials always responding with words and good intentions that yield no results. Things aren’t getting better, it’s time for a change. We need leaders who are not afraid of the streets of South Seattle, who will be there for our community when it’s hard, to listen and make a real difference. I promise to show up, listen, and always be there to fight for you. Endorsed by The Seattle Times, Rep. Sharon Tomiko-Santos, Port Commissioner Toshiko Hasegawa, former Governor Gary Locke, and more!",
+                        "statement_source": "King County voter pamphlet"
+                    }
+                ]
+            },
+            {
+                "position_info": {
+                    "boundary_type": "city",
+                    "title_string": "mayor",
+                    "title_info": "Not yet written",
+                    "title_description": "Not yet written",
+                    "area_name": "seattle",
+                    "district_char": null,
+                    "position_char": null
+                },
+                "candidate_info": [
+                    {
+                        "name": "Troy Linnell",
+                        "image": "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",
+                        "website": null,
+                        "education": "No information submitted",
+                        "occupation": "Current Mayor / Retired",
+                        "statement": "Occupation: Retired, 30+ years Class-A Truck Industry General Manager Algona needs a mayor who will advocate for our interests in projects requiring regional collaboration, support city employees’ efforts, and ensure city priorities reflect citizens’ needs. I hope to continue working on behalf of residents as Mayor. I firmly believe in our city’s bright future and want to help it grow. My wife and I have lived in the area for 40+ years and in Algona for 17. Our children and grandchildren also live here, inspiring me to work towards the Algona’s future. I served on City Council for seven years, becoming Mayor in January. I’ve supported: resolving flooding via storm drain improvement and cleaning the Highway 167 ditch; improving city streets; upgrading old water and sewer lines; and developing housing and parks. Strong leadership will embrace the future while protecting the character of our “small city with a big heart.",
+                        "statement_source": "King County voter pamphlet"
+                    },
+                    {
+                        "name": "Mathew Bailey",
+                        "image": null,
+                        "website": null,
+                        "education": "No information submitted",
+                        "occupation": "Public Works Operations",
+                        "statement": "Leadership means listening to everyone, shelving personal agendas and representing All of the people. That’s how I’ll lead when serving as your Mayor of City of Algona. If we want to address the many problems facing us here at home—drugs, crime, failing infrastructure and, lack of code enforcement —we need leaders who understand and are willing to reach out to every neighbor forming partnerships with our residents, our businesses and our community to find solutions. Balancing all our needs as Algona residents.  The need to expand our tax base. A thriving business community broadens our tax base bringing good paying jobs with benefits and allows us to fund our, community center, police, and public works department. It’s all about quality of life.",
+                        "statement_source": "King County voter pamphlet"
+                    }
+                ]
+            },
+            {
+                "position_info": {
+                    "election_id": "school district",
+                    "title_string": "school district director",
+                    "title_info": "Not yet written",
+                    "title_description": "Not yet written",
+                    "area_name": "seattle",
+                    "district_char": "1",
+                    "position_char": "6"
+                },
+                "candidate_info": [
+                    {
+                        "name": "Gina Topp",
+                        "image": null,
+                        "website": "www.ginatopp.com",
+                        "education": "University of Washington: Bachelor's Degree, Biology; Juris Doctor; Master's Degree, Tax Law",
+                        "occupation": "Lawyer and West Seattle mom; former Counsel, MLK County Executive",
+                        "statement": "Growing up, I experienced the struggles of our underfunded schools. Still, my life was transformed by inspirational and supportive teachers and counselors. Now, as I prepare to send my daughter into the same underfunded system, like many other parents, I’m worried. Seattle Public Schools faces a staggering $104.4 million budget shortfall for the 2024-2025 school year. The board is discussing cutting buses and music programs, laying off teachers, and even closing schools. It’s clear we need experienced leaders prepared to tackle these issues with innovative solutions and an unwavering commitment to our kids. I am well equipped to help bring stability and transformation to our schools, restoring parental and community confidence. As chief legal counsel and policy advisor to the King County Executive, I managed complex policy and budget challenges - prioritizing equity, accountability, and delivery of services. With your vote, my priorities will be: 1) Ensuring equity in education for all students, regardless of their background, so that every child has the opportunity to succeed; 2) Cultivating safe, inclusive, and welcoming environments, where every student feels valued and respected; 3) Empowering educators through comprehensive support and fostering professional growth, recognizing their critical role in shaping our children's future; 4) Engaging parents and communities to create a collaborative educational system that restores confidence in the governance of our district, and reflects the diverse needs and perspectives of our city. Together, I believe we can create a Seattle Public Schools system where parents and students look forward to the start of each school day. Endorsed by: The Seattle Times & The Stranger; Seattle Education Association; Alliance for Gun Responsibility; King County and 34th LD Democrats, Metropolitan Democratic Club; Women’s Political Caucus; One America Votes; Seattle Student Union; County Executive Dow Constantine, Legislative Democrats, current and former School Board leaders, more!",
+                        "statement_source": "King County voter pamphlet"
+                    },
+                    {
+                        "name": "Maryanne Wood",
+                        "image": "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",
+                        "website": "friendsofmaryannewood.com",
+                        "education": "Bachelor of Agricultural Science Washington State University, Early Childhood Development, South Seattle Community College",
+                        "occupation": "Advocate for Women in Recovery for 35 years",
+                        "statement": " 40-year West Seattle resident, 3 grandchildren in Seattle Public Schools (SPS), 1 with special needs.Restoring confidence in our schools that have lost the support of families and communities they serve is key. Parents, students, and teachers need to be better informed and consulted about education demands and budget priorities. \"Maryanne Wood's impassioned candidacy, spurred by her opposition to what she calls the \"mega school\"  plan, should serve as a barometer of community sentiment...It is also a reflection of anger across the district at a marked  lack of transparency around the current school board's decision-making.\"  - The Seattle Times Editorial Board. SPS's decision making process lacks transparency. Elect me to the School Board and I will work tirelessly to change that. Seattle Public Schools faces declining enrollments, budget deficits, elimination of resources and programs, possible closures, consolidation, teacher and staff layoffs according to an article published by the Seattle Times in April of 2023.  SPS is facing an estimated $131 million deficit for 2023-24 and $92 million for 2024-25 yet they are still planning to construct large, one-size-fits-all buildings to replace aging school. I live by the one planned for Alki Elementarty. A consolidation is a closure.These new schools provide no parking for staff or parents. ADA parking is insufficient.The Alki school rebuild and remodel is an example of this.  I will work to make sure these projects are scaled back if they don't have full community support. ADA parking and transportation needs must be given priority because if you can't get your child safely to the school, they can't be educated. As a grassroots candidate I would appreciate your vote,Endorsed by Vicki Schmitz, whose family donated the land for Schmitz Park Elementary and Scott Pinkham ( first Native American to serve on the SPS Board )",
+                        "statement_source": "King County voter pamphlet"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "election_id": 1,
+        "election_type": "primary",
+        "voting_start": 20230714,
+        "register_by": 20230724,
+        "voting_end": 20230801,
+        "contests": []
+    }
+]

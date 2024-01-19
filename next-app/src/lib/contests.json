@@ -1,0 +1,119 @@
+[
+    {
+      "key": 1,
+      "title": "Assessor",
+      "title_desc": "Responsible for assessing the value of property within a county for taxation purposes.",
+      "term_length": "3 year term",
+      "candidates": [
+        {
+          "key": 1,
+          "name": "Tony Hawk",
+          "image_source": "https://qpdth9z67y9awut8.public.blob.vercel-storage.com/frank.png",
+          "website": "google.com",
+          "education": "Masters in Skateboarding from UW",
+          "occupation": "Skateboarding Mogul",
+          "statement": "I love to skate. Yee-haw",
+          "statement_source": "King County voter pamphlet",
+          "pfms": [
+            {
+              "key": 1,
+              "name": "Business",
+              "value": 13
+            },
+            {
+              "key": 2,
+              "name": "Zoning",
+              "value": 12
+            },
+            {
+              "key": 3,
+              "name": "Reformed Courts",
+              "value": 22
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": 2,
+      "title": "Director of Elections",
+      "title_desc": "Responsible for overseeing and managing the electoral process at the county level.",
+      "term_length": "3 year term",
+      "candidates": [
+        {
+          "key": 43125,
+          "name": "Julie Wise",
+          "image_source": "https://qpdth9z67y9awut8.public.blob.vercel-storage.com/jasmine.png",
+          "pfms": [
+            {
+              "key": 54325,
+              "name": "Business",
+              "value": 13
+            },
+            {
+              "key": 22897,
+              "name": "Zoning",
+              "value": 12
+            },
+            {
+              "key": 357832,
+              "name": "Reformed Courts",
+              "value": 22
+            }
+          ]
+        },
+        {
+          "key": 3,
+          "name": "Doug Basler",
+          "image_source": "https://qpdth9z67y9awut8.public.blob.vercel-storage.com/jordan.png",
+          "pfms": [
+            {
+              "key": 423,
+              "name": "Security",
+              "value": 18
+            },
+            {
+              "key": 43,
+              "name": "Transit",
+              "value": 12
+            },
+            {
+              "key": 55,
+              "name": "Infrastructure",
+              "value": 22
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": 3,
+      "title": "Council District No.2",
+      "title_desc": "Responsible for making policies, passing ordinances, and overseeing the administration of various county functions",
+      "term_length": "3 year term",
+      "candidates": [
+        {
+          "key": 321,
+          "name": "Girmay Zahilay",
+          "image_source": "https://qpdth9z67y9awut8.public.blob.vercel-storage.com/eddie.png",
+          "pfms": [
+            {
+              "key": 5999,
+              "name": "Business",
+              "value": 13
+            },
+            {
+              "key": 2321333,
+              "name": "Zoning",
+              "value": 12
+            },
+            {
+              "key": 342,
+              "name": "Reformed Courts",
+              "value": 22
+            }
+          ]
+        }
+      ]
+    }
+  ]
