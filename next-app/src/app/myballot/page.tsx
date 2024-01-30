@@ -18,16 +18,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer"
 import '@/lib/contests.json'
 
 
@@ -185,7 +175,7 @@ function getContests(contestsData: Array<ContestProps>) {
           pfms={candidate.pfms}
         />
         // <Dialog>
-        //   <DialogTrigger>
+        //   <DialogTrigger asChild>
         //     <CandidateCard 
         //       key={candidate.key}
         //       name={candidate.name}
@@ -234,19 +224,17 @@ export default async function MyBallotPage() {
           <p className="text-lg font-600 text-disabled-foreground">Upcoming Election</p>
           <h1>November General and Special Election</h1>
           <p className="text-lg my-4">A general election and a special election are both types of elections, but they serve different purposes and occur under different circumstances.</p>
-          {/* <Button variant="subtle" className="self-center"></Button> */}
-          {/* <DialogButton buttonText="What’s the difference between a general and special election?"></DialogButton> */}
 
           <Dialog>
             <DialogTrigger asChild>
               <Button variant="subtle" className="self-center">What’s the difference between a general and special election?</Button>
             </DialogTrigger>
-            <DialogContent className="flex flex-col w-[calc(100vw-2rem)] sm:w-[calc(100vw-8rem)] max-w-screen-sm max-h-[calc(100vh-4rem)]">
+            <DialogContent className="flex flex-col w-[calc(100vw-2rem)] sm:w-[calc(100vw-8rem)] max-w-screen-sm max-h-[calc(100vh-4rem)] pr-0 bg-clip-border">
               <DialogHeader>
                 <h3 className="mr-8">What’s the difference between a general and special election?</h3>
               </DialogHeader>
                 
-              <div className="items-stretch overflow-y-scroll">
+              <div className="items-stretch overflow-y-scroll pr-8">
                 <p className="pr-8">A general election and a special election are both types of elections, but they serve different purposes and occur under different circumstances.</p>
                 <ol className="styled pr-8">
                   <li>
@@ -275,41 +263,6 @@ export default async function MyBallotPage() {
               
             </DialogContent>
           </Dialog>
-
-          {/* <Drawer>
-            <DrawerTrigger asChild>
-              <Button variant="subtle" className="self-center">What’s the difference between a general and special election?</Button>
-            </DrawerTrigger>
-            <DrawerContent>
-              <DrawerHeader>
-                <h3 className="mr-8">What’s the difference between a general and special election?</h3>
-              </DrawerHeader>
-              <p>A general election and a special election are both types of elections, but they serve different purposes and occur under different circumstances.</p>
-              <ol className="styled">
-                <li>
-                  <p className="font-500">General Election:</p>
-                  <ul className="styled">
-                    <li>A general election is a regularly scheduled election that occurs at specified intervals, typically to elect representatives or officials for a specific period, such as four years.</li>
-                    <li>It is a comprehensive election where voters choose candidates for various offices at the national, state, or local levels. This can include positions like the President, members of the legislature, governors, mayors, and other public officials.</li>
-                    <li>General elections are usually held on a fixed schedule, as defined by the constitution or laws of a particular country or region. In many democracies, they are held at regular intervals, such as every four years.</li>
-                  </ul>
-                </li>
-                <li>
-                  <p className="font-500">Special Election:</p>
-                  <ul className="styled">
-                    <li>A special election, on the other hand, is an unscheduled election that is called outside the regular election cycle. It is typically held to fill a vacant position or address a specific issue.</li>
-                    <li>Special elections can be triggered by various reasons, such as the death, resignation, or removal of an elected official before their term is completed. They can also be called to decide on specific matters like a proposed change to the constitution or a specific policy issue.</li>
-                    <li>The timing and rules for special elections vary by jurisdiction and are often defined by laws or the constitution.</li>
-                  </ul>
-                </li>
-              </ol>
-              <div className="mt-8 flex flex-col text-secondary italic">
-                <small>Generated and proofread with ChatGPT on Dec 30, 2023.</small>
-                <small>Prompt: “What’s the difference between a general and special election?”</small>
-                <small>Learn more about ClearVote’s philosophy on AI here.</small>
-              </div>
-            </DrawerContent>
-          </Drawer> */}
           
         </div>
         
@@ -329,7 +282,10 @@ export default async function MyBallotPage() {
       <section className="max-w-[1200px] w-[calc(100%-8rem)]">
         <Separator />
         <h2 className="mt-8 mb-4">On your ballot...</h2>
-        <Tabs defaultValue="county">
+        <p>Showing contests for:</p>
+        <h4>King County</h4>
+        {getContests(contestsData)}
+        {/* <Tabs defaultValue="county">
           <TabsList className="mb-4">
             <TabsTrigger value="county">County</TabsTrigger>
             <TabsTrigger value="court-of-appeals">Court of Appeals</TabsTrigger>
@@ -356,7 +312,7 @@ export default async function MyBallotPage() {
           <TabsContent value="school">
             Lorem ipsum
           </TabsContent>
-        </Tabs>
+        </Tabs> */}
       </section>
     </main>
 
