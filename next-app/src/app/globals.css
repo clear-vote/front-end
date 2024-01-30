@@ -85,6 +85,10 @@ body {
   font-smooth: never;
 }
 
+.scrolling-wrapper {
+  -webkit-overflow-scrolling: touch;
+}
+
 /* --- Styles --- */
 
 .elevation-1 {
@@ -133,6 +137,23 @@ small {
   letter-spacing: -0.01em;
 }
 
-.scrolling-wrapper {
-  -webkit-overflow-scrolling: touch;
+/* --- Lists --- */
+ol.styled {
+  list-style: number;
+  margin-left: 1.25rem;
+  padding-left: 0.25rem;
+}
+
+ol.styled > li {
+  margin-top: 0.5rem;
+}
+
+ul.styled {
+  list-style: disc;
+  margin-left: 1.25rem;
+  padding-left: 0.25rem;
+}
+
+ul.styled > li {
+  margin-top: 0.5rem;
 }

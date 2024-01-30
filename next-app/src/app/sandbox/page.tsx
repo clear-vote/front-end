@@ -15,6 +15,8 @@ import { Mail } from "lucide-react"
 
 
 export default function Sandbox() {
+  const data = "...";
+
   return (
     <main className="min-h-screen mt-32 flex flex-col gap-16 items-center">
       <ScrollUp/>
@@ -86,6 +88,16 @@ export default function Sandbox() {
             </AccordionItem>
           </Accordion>
       </section>
+
+
+
+
+      <section>
+        
+
+      </section>
+
+
     </main>
 
   )}
