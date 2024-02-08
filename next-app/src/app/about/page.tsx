@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/accordion"
 import SiteBar from '@/components/custom/sitebar'
 import { SearchInput } from '@/components/custom/search-input'
-import { Mail } from "lucide-react"
 
 
 export default function Sandbox() {
