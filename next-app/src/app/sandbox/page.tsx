@@ -14,6 +14,13 @@ import { SearchInput } from '@/components/custom/search-input'
 import { Mail } from "lucide-react"
 
 
+function backend(userInput: string) {
+  // send userInput to mapbox
+  // retrieve information
+  // populate with that information
+}
+
+
 export default function Sandbox() {
   const data = "...";
 
@@ -93,7 +100,7 @@ export default function Sandbox() {
 
 
       <section>
-        
+        <input />
 
       </section>
 
