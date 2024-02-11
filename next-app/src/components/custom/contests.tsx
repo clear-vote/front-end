@@ -50,26 +50,25 @@ export default async function Contests() {
   />
  );
 
-// Returns a <CandidateCard/>, using passed data from contestsData
- function getCandidates(candidates: Array<CandidateProps>) {
-  return candidates.map(
-   candidate => (
-     <CandidateCard
-        key={candidate.key}
-        name={candidate.name}
-        image_source={candidate.image_source}
-        pfms={candidate.pfms}
-     />
-   )
-  );
- }
-
  return (
   <div className="mt-4 flex flex-col gap-4">{contests}</div>
  );
 }
 
 
+// Returns a <CandidateCard/>, using passed data from contestsData
+function getCandidates(candidates: Array<CandidateProps>) {
+     return candidates.map(
+      candidate => (
+        <CandidateCard
+           key={candidate.key}
+           name={candidate.name}
+           image_source={candidate.image_source}
+           pfms={candidate.pfms}
+        />
+      )
+     );
+    }
 
 function Contest(props: ContestProps) {
      return (
