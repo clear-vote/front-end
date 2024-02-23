@@ -37,7 +37,7 @@ export default async function Contests() {
 
 // Creates a <div> containing <Contest/> components, which are mapped from contestsData
  const contests = contestsData.map(
-  contest => <Contest
+     (contest: any) => <Contest
    key={contest.key}
    title={contest.title}
    title_desc={contest.title_desc}
