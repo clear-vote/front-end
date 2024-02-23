@@ -37,7 +37,7 @@ export default function LocationPicker() {
             <DialogHeader>
               <DialogTitle>Change voting address</DialogTitle>
               <DialogDescription>
-                Enter your address, so we can make sure you receive relevant information. Click save when you're done.
+                Enter your address, so we can make sure you receive relevant information. Click save when you&apos;re done.
               </DialogDescription>
             </DialogHeader>
             <div>

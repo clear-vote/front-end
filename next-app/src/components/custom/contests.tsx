@@ -42,12 +42,11 @@ export default async function Contests() {
    title={contest.title}
    title_desc={contest.title_desc}
    term_length={contest.term_length}
-   children={
+  >
      <div className="w-full flex gap-4 p-8">
         {getCandidates(contest.candidates)}
      </div>
-   }
-  />
+  </Contest>
  );
 
  return (
