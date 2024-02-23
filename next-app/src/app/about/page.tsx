@@ -39,13 +39,13 @@ export default function Sandbox() {
           <br></br>
           <ol>
             <li><strong>1.</strong> Do not even know there is an election going on.</li>
-            <li><strong>2.</strong> Don’t have the time to figure out how to participate.</li>
+            <li><strong>2.</strong> Don&apos;t have the time to figure out how to participate.</li>
             <li><strong>3.</strong> Are not able to keep track of the key dates and miss the voting schedule.</li>
           </ol>
           <br></br>
             Even worse, ballots themselves tend to be vague and require busy would-be voters to read complicated 
             voter pamphlets, or to read between the lines from biased articles and news sources to figure out what the 
-            people they are voting for really represent. Those who don’t opt out entirely are prone to vote for a 
+            people they are voting for really represent. Those who don&apos;t opt out entirely are prone to vote for a 
             person purely on the basis of their political party and not the values they actually represent.
           </p>
           <br></br>
@@ -59,7 +59,7 @@ export default function Sandbox() {
             a small handful of people. In it:
           <br></br><br></br>
           <ol>
-            <li><strong>1.</strong> Representatives are more likely to consider their constituent’s needs.</li>
+            <li><strong>1.</strong> Representatives are more likely to consider their constituent&apos;s needs.</li>
             <li><strong>2.</strong> Constituents are more likely to interact with their representatives.</li>
             <li><strong>3.</strong> Faster, more effective action can be taken in a way that best fits the needs of the community</li>
           </ol>
@@ -75,8 +75,8 @@ export default function Sandbox() {
           <br></br>
           <p>
           We believe through the open-source nature and community driven nature of ClearVote, we can enhancing the political 
-          agency of individuals globally on a small scale, where each “chapter” of ClearVote is catered to the needs of that 
-          particular community. We aim to give people an immersive experience, where they don’t just feel like they are using 
+          agency of individuals globally on a small scale, where each &quot;chapter&quot; of ClearVote is catered to the needs of that 
+          particular community. We aim to give people an immersive experience, where they don&apos;t just feel like they are using 
           a service, but are contributing to the growth of something bigger than them that has purpose and impact.
           </p>
           <p>
@@ -89,9 +89,9 @@ export default function Sandbox() {
 
           <h1 className="text-3xl font-semibold my-8">Who We Are Not</h1>
           <p>
-          An application like this could in theory be used for control, but we believe this isn’t possible for the main reason that 
-          people are more skeptical when it comes to politics than anything else. Our primary asset is Trust. "Trust is built in inches 
-          and destroyed in miles". Thus, we take every effort to design our culture, organization, and service in contrast to the following:
+          An application like this could in theory be used for control, but we believe this isn&apos;t possible for the main reason that 
+          people are more skeptical when it comes to politics than anything else. Our primary asset is Trust. &quot;Trust is built in inches 
+          and destroyed in miles&quot;. Thus, we take every effort to design our culture, organization, and service in contrast to the following:
           <br></br>
           <br></br>
           <ol>
@@ -106,7 +106,7 @@ export default function Sandbox() {
           </p>
           <br></br>
           <Button size="lg">
-            <a href="/" target="_blank">Let's Get Started!</a>
+            <a href="/" target="_blank">Let&apos;s Get Started!</a>
           </Button>
         </div>
 
