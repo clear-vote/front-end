@@ -12,6 +12,7 @@
     "@babel/helper-module-imports": "^7.22.15",
     "@fontsource/ibm-plex-sans": "^5.0.18",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",

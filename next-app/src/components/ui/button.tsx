@@ -23,6 +23,8 @@ const buttonVariants = cva(
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         link:
           "text-primary underline-offset-4 hover:underline",
+        discord:
+          "text-white font-500 bg-[#5865F2]"
       },
       size: {
         sm: "h-9 px-3",

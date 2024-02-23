@@ -4,6 +4,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 
+import '@fortawesome/fontawesome-svg-core/styles.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDiscord } from '@fortawesome/free-brands-svg-icons'
+
 export default function SiteBar() {
 
   return (
@@ -28,8 +32,11 @@ export default function SiteBar() {
         <li><Button variant="ghost" size="sm">
           Help
         </Button></li>
-        <li><Button asChild>
-          <Link href="/sandbox">Log In</Link>
+        <li><Button variant="discord" asChild>
+          <Link href="https://discord.gg/8mvz4S7Z" target="_blank">
+            <FontAwesomeIcon icon={faDiscord} className="mr-2" />
+            Join our Discord
+          </Link>
         </Button></li>
       </ul>
     </nav>
