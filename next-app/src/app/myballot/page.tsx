@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dialog"
 
 import Contests from "@/components/custom/contests"
-
+import contestData from '/Users/jkru3/Documents/Projects/Clearvote/front-end/next-app/src/data/contestData.json'
 
 export default async function MyBallotPage() {
   return (
@@ -97,12 +97,21 @@ export default async function MyBallotPage() {
         <h2 className="mt-8 mb-4">On your ballot...</h2>
         <p>Showing contests for:</p>
         <h4>King County</h4>
-
-        {/* TODO: Pass address data to <Contests/>, to inform back-end API request. */}
-        <Contests />
+        <p>there are {contestData.length} (debugging, delete this!)</p>
+        {/* TODO: Everything here is hardcoded. enable geodata support for this so it doesn't have to be!*/}
+        <Contests
+          contest_data={contestData}
+          election_id={2}
+          congressional_district='7'
+          legislative_district='37'
+          county="king"
+          county_district="4" 
+          city="seattle" 
+          city_district="4" 
+          school_district="1"
+        />
       </section>
     </main>
-
   )}
 
   
