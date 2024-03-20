@@ -1,0 +1,64 @@
+[
+    {
+        "election_id": 1,
+        "election_type": "primary",
+        "voting_start": 20230714,
+        "register_by": 20230724,
+        "voting_end": 20230801,
+        "contests": [
+            {
+                "position_info": {
+                    "boundary_type": "county council",
+                    "title_string": "county council",
+                    "area_name": "king",
+                    "district_char": "4",
+                    "position_char": null
+                },
+                "candidate_info": [
+                    {
+                        "name": "Becka Johnson Poppe",
+                        "image": "https://info.kingcounty.gov/kcelections/vote/contests/GetPhoto.ashx?webapiaddress=https://websvc.kingcounty.gov/elections/WEBAPI/&candidateid=1604694&electionid=38&contestid=123797",
+                        "website": "www.votebecka.com",
+                        "email": "beckapoppe@gmail.com",
+                        "education": "Master of Public Administration, and Certificate in Environmental Management, UW Evans School; BA, Whitman College",
+                        "occupation": "King County Budget and Policy Manager",
+                        "statement": "I know what it takes to move progressive policy forward in King County because I’ve been doing it for over a decade.As Budget & Policy Manager for King County, I direct half the County’s $16 billion budget, including metro transit and parks. I’ve advanced environmental and racial justice imperatives to create a $20m Climate Equity program that funds green home energy conversions and new affordable housing. As the UW’s Director of Policy, Planning & State Operations, I implemented paid family and medical leave, and championed legislation that delivered affordable higher education to thousands of students.King County is bigger than 15 other states, we have the responsibility to lead on issues from homelessness to transit to climate change.I will bring my experience getting things done at the County to ensure we protect our environment, advance equity, and grow our economy. Helping the unhoused is an urgent priority, we must scale up supportive services that save lives and build healthy communities for everyone. We need safe, reliable public transportation throughout District 4, which is why I’ve proposed a Transportation Benefit District for the county. I will also increase investments in renewable energy and green development in public and private projects to ensure our region, and world, are livable for generations to come.Together, we can make real progress for our families, neighbors, and communities in District 4, and I would be honored to earn your vote.Endorsements: National Women’s Political Caucus, King County Young Democrats, UW Young Democrats, Public Lands Commissioner Hilary Franz, County Councilmember Joe McDermott, State Representatives: Liz Berry and Kristine Reeves, community leaders Dorothy Bullitt and Cary Moon, Seattle City Councilmember Lisa Herbold, Former City Councilmembers Nick Licata and Abel Pacheco, King Conservation District Supervisor Csenka Favorini-Csorba, and dozens of local business, nonprofit, and community leaders.",
+                        "statement_source": "King County voter pamphlet",
+                        "campaign_donations": [
+                            {
+                                "British Petroleum": 500000
+                            },
+                            {
+                                "Individual Contributors": 11205
+                            }
+                        ],
+                        "donation_sources": [
+                            "Washington State Auditor",
+                            "Federal Elections Commission"
+                        ],
+                        "pfms": [
+                            {
+                                "environment": 0.0890
+                            },
+                            {
+                                "economics": 0.3121
+                            },
+                            {
+                                "education": 0.1148
+                            },
+                            {
+                                "budget": 0.4001
+                            },
+                            {
+                                "zoning": 0.2452
+                            },
+                            {
+                                "security": 0.0452
+                            }
+                        ],
+                        "politigram_quotes": [
+                            {
+                                "sustainability_focus": "I direct half the County’s $16 billion budget, including metro transit and parks. I’ve advanced environmental and racial justice imperatives to create a $20m Climate Equity program that funds green home energy conversions and new affordable housing"
+                            }
+                        ],
+                    },

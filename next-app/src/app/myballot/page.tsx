@@ -14,13 +14,13 @@ import {
 } from "@/components/ui/dialog"
 
 import Contests from "@/components/custom/contests"
-import contestData from '/Users/jkru3/Documents/Projects/Clearvote/front-end/next-app/src/data/contestData.json'
+import contestData from '@/lib/data/contestData.json'
 
 export default async function MyBallotPage() {
   return (
     <main className="min-h-screen my-32 flex flex-col gap-16 items-center">
       <section className="max-w-[660px] flex flex-col gap-6 items-center">
-        <Image 
+        <Image
           src="/temp-map.png"
           alt="map view of Seattle"
           width={0}
@@ -46,7 +46,7 @@ export default async function MyBallotPage() {
               <DialogHeader>
                 <h3 className="mr-8">What’s the difference between a general and special election?</h3>
               </DialogHeader>
-                
+
               <div className="items-stretch overflow-y-scroll pr-8">
                 <p className="pr-8">A general election and a special election are both types of elections, but they serve different purposes and occur under different circumstances.</p>
                 <ol className="styled pr-8">
@@ -73,12 +73,12 @@ export default async function MyBallotPage() {
                   <small>Learn more about ClearVote’s philosophy on AI here.</small>
                 </div>
               </div>
-              
+
             </DialogContent>
           </Dialog>
-          
+
         </div>
-        
+
         <div className="w-full">
           <h3>Dates and Deadlines</h3>
           <div className="scrolling-wrapper overflow-x-scroll py-4">
@@ -105,13 +105,13 @@ export default async function MyBallotPage() {
           congressional_district='7'
           legislative_district='37'
           county="king"
-          county_district="4" 
-          city="seattle" 
-          city_district="4" 
+          county_district="4"
+          city="seattle"
+          city_district="4"
           school_district="1"
         />
       </section>
     </main>
-  )}
+  )
+}
 
-  
