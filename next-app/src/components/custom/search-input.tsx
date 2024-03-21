@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from "react"
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

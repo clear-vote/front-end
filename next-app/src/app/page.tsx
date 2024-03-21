@@ -1,5 +1,3 @@
-'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
 import ScrollUp from '@/lib/scrollup'
@@ -15,10 +13,6 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons'
 // import chilis from '../assets/chilis.gif'
 
 export default function Home() {
-  const [searchInput, setSearchInput] = useState('');
-
-  // const handleSearch = async (
-
   return (
     <main className="min-h-screen mt-32 flex flex-col items-center">
       <ScrollUp />
@@ -27,7 +21,7 @@ export default function Home() {
         <p className="text-lg mt-2">Stay up-to-date during local, off-cycle elections and understand who you are voting for.</p>
       </section>
       <section className="w-full max-w-lg flex flex-col items-center pt-16 gap-4">
-        <SearchInput type="search" placeholder="Enter your address to get coordinates..." className="w-full " />
+        <SearchInput type="search" placeholder="YEET..." className="w-full " />
         <div className="w-full flex items-center gap-2">
           <Separator className="grow shrink" />
           <small>OR</small>
