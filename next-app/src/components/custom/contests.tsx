@@ -20,8 +20,6 @@ import {
 interface PositionInfo {
      boundary_type: string;
      title_string: string;
-     title_info: string;
-     title_description: string;
      area_name: string;
      district_char: string | null;
      position_char: string | null;
@@ -35,6 +33,7 @@ interface Contest {
 interface Candidate {
      name: string;
      image: string;
+     email: string;
      website: string
      education: string;
      occupation: string;
