@@ -31,16 +31,16 @@ interface Contest {
 }
 
 interface Candidate {
-     name: string;
-     image: string;
-     email: string;
-     website: string
-     education: string;
-     occupation: string;
-     statement: string;
-     statement_source: string;
-     pfms: any[];
-     politigram_quotes: any[];
+     name: string | null;
+     image: string | null;
+     email: string | null;
+     website: string | null;
+     education: string | null;
+     occupation: string | null;
+     statement: string | null;
+     statement_source: string | null;
+     pfms: any[] | null;
+     politigram_quotes: any[] | null;
 }
 
 interface ElectionItem {
@@ -131,12 +131,12 @@ export function CandidateCard(props: Candidate) {
                     <div className="flex-none bg-card hover:bg-neutral-100 elevation-1 border border-1 rounded-lg p-6 flex flex-col gap-0 items-start max-w-[calc(200px+1.5rem)]">
                          {/* Use a conditional rendering to check if the image URL is from an unconfigured host */}
                          <Image
-                              src={props.image}
+                              src={props.image || ''}
                               alt="candidate headshot"
                               height={200}
                               width={200}
                               className="border rounded-sm mb-4"
-                              unoptimized={props.image.startsWith('https://info.kingcounty.gov')}
+                              unoptimized={!!(props.image && props.image.startsWith('https://info.kingcounty.gov'))}
                          />
                          <p className="text-lg font-600">{props.name}</p>
                          <p>{props.website}</p>
@@ -147,12 +147,12 @@ export function CandidateCard(props: Candidate) {
                          <div className="bg-slate-300 w-full h-16 fixed top-0 left-0 z-0"></div>
                          {/* Repeat the conditional rendering for the detailed image */}
                          <Image
-                              src={props.image}
+                              src={props.image || ''} // Use an empty string as a default value if props.image is null
                               alt="candidate headshot"
-                              height={144}
-                              width={144}
+                              height={200}
+                              width={200}
                               className="border rounded-sm mb-4"
-                              unoptimized={props.image.startsWith('https://info.kingcounty.gov')}
+                              unoptimized={!!(props.image && props.image.startsWith('https://info.kingcounty.gov'))}
                          />
                          <h2>{props.name}</h2>
                          <div className="flex gap-8 mt-4 w-full">
