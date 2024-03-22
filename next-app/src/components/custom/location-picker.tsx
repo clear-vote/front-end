@@ -41,9 +41,9 @@ export default function LocationPicker() {
               Enter your address, so we can make sure you receive relevant information. Click save when you&apos;re done.
             </DialogDescription>
           </DialogHeader>
-          <div>
+          {/* <div> TODO: get this running!
             <SearchInput type="search" placeholder="Start typing an address, e.g. 123 Main..." className="w-full " />
-          </div>
+          </div> */}
         </DialogContent>
       </Dialog>
     </div>

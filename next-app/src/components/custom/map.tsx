@@ -3,11 +3,13 @@
 import mapboxgl from "mapbox-gl";
 import { useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from 'react'
 
-// Ensure you have a CSS link for MapboxGL JS in your HTML or import it in your project
-// mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || "";
+interface MapProps {
+    token: string | undefined;
+}
 
-export default function Map(token: string | undefined) {
+export default function Map({ token }: MapProps) {
     if (!token) {
         alert("Mapbox token is required!")
     }
@@ -23,15 +25,22 @@ export default function Map(token: string | undefined) {
         if (lat && lng && !isNaN(lat) && !isNaN(lng)) {
             const map = new mapboxgl.Map({
                 container: mapContainer.current || 'map',
-                style: 'mapbox://styles/mapbox/streets-v11', // Specify the map style
-                center: [lng, lat], // Set the initial center point
-                zoom: 9 // Set the initial zoom level
+                style: 'mapbox://styles/mapbox/streets-v11',
+                center: [lng, lat],
+                zoom: 9
             });
 
-            // Clean up on unmount
+            new mapboxgl.Marker()
+                .setLngLat([lng, lat])
+                .addTo(map);
+
             return () => map.remove();
         }
     }, [lat, lng]);
 
-    return <div ref={mapContainer} style={{ width: '100%', height: '400px', backgroundColor: 'lightgray' }} />;
+    return (
+        <Suspense>
+            <div ref={mapContainer} style={{ width: '100%', height: '400px', backgroundColor: 'lightgray' }} />;
+        </Suspense>
+    )
 }

@@ -16,11 +16,7 @@ import {
 
 import Contests from "@/components/custom/contests"
 import contestData from '@/lib/data/contestData.json'
-
-interface InputProps {
-  lat: string | undefined,
-  lng: string | undefined
-}
+import { Suspense } from 'react'
 
 export default function MyBallotPage({
   searchParams,
@@ -31,9 +27,13 @@ export default function MyBallotPage({
   return (
     <main className="min-h-screen my-32 flex flex-col gap-16 items-center">
       <section className="max-w-[660px] flex flex-col gap-6 items-center">
-        <Map token={process.env.MAPBOX_TOKEN} />
+        <Suspense>
+          <Map
+            token={process.env.MAPBOX_TOKEN}
+          />
+        </Suspense>
         <div className="max-w-[500px] w-full" >
-          <LocationPicker />
+          {/* <LocationPicker />  TODO: implement */}
         </div>
 
         <div className="my-8 flex flex-col gap-2 text-center">
