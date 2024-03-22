@@ -22,13 +22,14 @@ export default function About() {
       <ScrollUp />
       <section className="w-full max-w-2xl bg-card border rounded-md overflow-hidden flex flex-col items-center">
         <div className="mb-4 w-[calc(100%-2rem)] flex flex-col items-center">
-          <Image src="logo.svg" alt="ClearVote-logo" width={200} height={200} />
+          <Image src="/favicon.jpg" alt="ClearVote-logo" width={200} height={200} />
           <h1 className="text-3xl font-semibold my-8">About Us</h1>
           <p>Our goal here at Clearvote is to help the public stay
             up-to-date during <strong>local</strong>, <strong>off-cycle</strong> elections and understand <strong>who </strong>
             they are voting for.
           </p>
           <h1 className="text-3xl font-semibold my-8">Who We Are</h1>
+          <Image src="/star.jpg" alt="Team-photo" width={400} height={200} />
           <h3>Why?</h3>
           <br></br>
           <p>

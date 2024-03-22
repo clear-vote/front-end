@@ -7,12 +7,17 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 import { cn } from "@/lib/utils";
 
-export interface InputProps
+interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: React.ReactNode;
   token: string | undefined;
   bounds: string; // Assuming bounds is an array of numbers [westLng, southLat, eastLng, northLat]
   maxResults: number;
+}
+
+interface SearchResult {
+  place_name: string;
+  center: [number, number]; // Assuming center is an array of [longitude, latitude]
 }
 
 const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(
@@ -21,17 +26,20 @@ const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(
     const [focusedItemIndex, setFocusedItemIndex] = React.useState(-1); // focused list item
     const [inputValue, setInputValue] = React.useState(''); // input string
     const [selectedItem, setSelectedItem] = React.useState({}); // selected item, which contains the coordinates
+    const [shouldSearch, setShouldSearch] = React.useState(true);
 
+    // is handle input change being called when 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setFocusedItemIndex(-1);
       setInputValue(event.target.value);
+      setShouldSearch(true);
     };
 
     React.useEffect(() => {
       if (!token) {
         alert("Mapbox token is required!")
       }
-      if (inputValue.length > 3) {
+      if (inputValue.length > 3 && shouldSearch) {
         const timeoutId = setTimeout(() => {
           const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(inputValue)}.json?access_token=${token}&bbox=${bounds}&fuzzyMatch=true&limit=${maxResults}&routing=false`;
           fetch(url)
@@ -66,10 +74,11 @@ const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(
 
     const handleEnterKey = () => {
       if (focusedItemIndex >= 0) { // user hasn't picked an item
-        setInputValue(searchResults[focusedItemIndex].place_name);
+        setInputValue((searchResults[focusedItemIndex] as SearchResult).place_name);
         setSelectedItem(searchResults[focusedItemIndex]);
         setSearchResults([]);
         setFocusedItemIndex(-1);
+        setShouldSearch(false);
       } else if (!selectedItem && searchResults.length === 0) {
         alert("you must enter an item!");
       } else {
@@ -78,11 +87,12 @@ const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(
           // alert("user didn't pick; choosing top search result")
         }
         handleCoordinates(selectedItem);
+        setShouldSearch(false);
       }
     }
 
     const handleCoordinates = (selectedItem: {}) => {
-      const center = selectedItem.center;
+      const center = (selectedItem as SearchResult).center;
       if (center && Array.isArray(center) && center.length === 2) {
         const [lng, lat] = center;
         if (typeof lng === 'number' && typeof lat === 'number' &&
@@ -98,8 +108,9 @@ const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(
     const handleItemClick = (itemIndex: number) => {
       setSearchResults([]);
       setFocusedItemIndex(-1);
-      setInputValue(searchResults[itemIndex].place_name);
+      setInputValue((searchResults[itemIndex] as SearchResult).place_name);
       setSelectedItem(searchResults[itemIndex]);
+      setShouldSearch(false);
     };
 
     return (
@@ -131,7 +142,7 @@ const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(
                   onMouseEnter={() => setFocusedItemIndex(index)}
                   onClick={() => handleItemClick(index)}
                 >
-                  {result.place_name}
+                  {(result as SearchResult).place_name}
                 </li>
               ))}
             </ul>

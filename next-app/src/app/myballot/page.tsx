@@ -17,11 +17,6 @@ import {
 import Contests from "@/components/custom/contests"
 import contestData from '@/lib/data/contestData.json'
 
-interface InputProps {
-  lat: string | undefined,
-  lng: string | undefined
-}
-
 export default function MyBallotPage({
   searchParams,
 }: {
@@ -31,7 +26,9 @@ export default function MyBallotPage({
   return (
     <main className="min-h-screen my-32 flex flex-col gap-16 items-center">
       <section className="max-w-[660px] flex flex-col gap-6 items-center">
-        <Map token={process.env.MAPBOX_TOKEN} />
+        <Map
+          token={process.env.MAPBOX_TOKEN}
+        />
         <div className="max-w-[500px] w-full" >
           <LocationPicker />
         </div>
