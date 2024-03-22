@@ -3,7 +3,6 @@
 import mapboxgl from "mapbox-gl";
 import { useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
-import { Suspense } from 'react'
 
 interface MapProps {
     token: string | undefined;
@@ -14,15 +13,15 @@ export default function Map({ token }: MapProps) {
         alert("Mapbox token is required!")
     }
     mapboxgl.accessToken = token || '';
-    const mapContainer = useRef(null);
+    const mapContainer = useRef<HTMLDivElement>(null);
     const searchParams = useSearchParams()!;
     const latString = searchParams.get('lat');
     const lngString = searchParams.get('lng');
-    let lat = parseFloat(latString || '0');
-    let lng = parseFloat(lngString || '0');
+    const lat = parseFloat(latString || 'NaN');
+    const lng = parseFloat(lngString || 'NaN');
 
     useEffect(() => {
-        if (lat && lng && !isNaN(lat) && !isNaN(lng)) {
+        if (lat && lng && !isNaN(lat) && !isNaN(lng) && mapContainer.current) {
             const map = new mapboxgl.Map({
                 container: mapContainer.current || 'map',
                 style: 'mapbox://styles/mapbox/streets-v11',
@@ -39,8 +38,6 @@ export default function Map({ token }: MapProps) {
     }, [lat, lng]);
 
     return (
-        <Suspense>
-            <div ref={mapContainer} style={{ width: '100%', height: '400px', backgroundColor: 'lightgray' }} />;
-        </Suspense>
-    )
+        <div ref={mapContainer} style={{ width: '100%', height: '400px', backgroundColor: 'lightgray' }} />
+    );
 }
