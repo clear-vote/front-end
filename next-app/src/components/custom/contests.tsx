@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import { ReactNode } from 'react'
 import React, { useState, useEffect } from 'react';
@@ -7,7 +7,7 @@ import { promises as fs } from 'fs';
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { Badge } from '@/components/ui/badge'
-import { PfmBadge, PfmProps } from './pfmBadge'
+import { PfmBadge, PfmProps } from './unused/pfmBadge'
 import {
      Dialog,
      DialogContent,

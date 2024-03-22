@@ -1,4 +1,5 @@
 'use client'
+
 import { useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -14,11 +15,11 @@ export default function SiteBar() {
     <nav className="bg-card elevation-1 px-8 py-3 flex justify-between items-center">
       <Link href="/">
         <Image
-            src="/logo.svg"
-            width={48}
-            height={48}
-            alt="clearvote logo"
-          />
+          src="/logo.svg"
+          width={48}
+          height={48}
+          alt="clearvote logo"
+        />
       </Link>
       <ul className="flex gap-4 items-center">
         <li>
