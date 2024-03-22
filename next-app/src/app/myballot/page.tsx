@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Separator } from '@/components/ui/separator'
 import LocationPicker from '@/components/custom/location-picker'
 import DateCard from '@/components/custom/date-card'
+import Map from '@/components/custom/map'
 import {
   Dialog,
   DialogContent,
@@ -16,19 +17,21 @@ import {
 import Contests from "@/components/custom/contests"
 import contestData from '@/lib/data/contestData.json'
 
-export default async function MyBallotPage() {
+interface InputProps {
+  lat: string | undefined,
+  lng: string | undefined
+}
+
+export default function MyBallotPage({
+  searchParams,
+}: {
+  searchParams: { lat: string | undefined, lng: string | undefined }
+}) {
+
   return (
     <main className="min-h-screen my-32 flex flex-col gap-16 items-center">
       <section className="max-w-[660px] flex flex-col gap-6 items-center">
-        <Image
-          src="/temp-map.png"
-          alt="map view of Seattle"
-          width={0}
-          height={0}
-          sizes="100vw"
-          style={{ width: '100%', height: 'auto' }}
-        />
-
+        <Map token={process.env.MAPBOX_TOKEN} />
         <div className="max-w-[500px] w-full" >
           <LocationPicker />
         </div>
