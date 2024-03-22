@@ -3,6 +3,7 @@
 import mapboxgl from "mapbox-gl";
 import { useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from 'react'
 
 interface MapProps {
     token: string | undefined;
@@ -37,5 +38,9 @@ export default function Map({ token }: MapProps) {
         }
     }, [lat, lng]);
 
-    return <div ref={mapContainer} style={{ width: '100%', height: '400px', backgroundColor: 'lightgray' }} />;
+    return (
+        <Suspense>
+            <div ref={mapContainer} style={{ width: '100%', height: '400px', backgroundColor: 'lightgray' }} />;
+        </Suspense>
+    )
 }
