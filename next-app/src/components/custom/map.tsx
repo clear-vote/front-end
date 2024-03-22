@@ -7,8 +7,11 @@ import { useSearchParams } from "next/navigation";
 // Ensure you have a CSS link for MapboxGL JS in your HTML or import it in your project
 // mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || "";
 
-export default function Map(token: string | null) {
-    mapboxgl.accessToken = token!;
+export default function Map(token: string | undefined) {
+    if (!token) {
+        alert("Mapbox token is required!")
+    }
+    mapboxgl.accessToken = token || '';
     const mapContainer = useRef(null);
     const searchParams = useSearchParams()!;
     const latString = searchParams.get('lat');
