@@ -20,8 +20,8 @@ export default function SiteBar() {
             <div className="absolute -inset-1 blur-lg bg-purple-400 opacity-75 rounded-full"></div>
             <Image
               src="/favicon-plain.svg"
-              width={75}
-              height={75}
+              width={50}
+              height={50}
               alt="clearvote logo"
               className="z-10 relative"
             />
