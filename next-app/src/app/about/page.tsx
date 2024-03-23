@@ -18,11 +18,11 @@ export default function About() {
 
   return (
     //Content of the about page
-    <main className="min-h-screen mt-32 flex flex-col gap-16 items-center">
+    <main className="min-h-screen pt-32 flex flex-col gap-16 items-center bg-gradient-to-r from-[#FFA59E] to-[#CBAFEF]">
       <ScrollUp />
-      <section className="w-full max-w-2xl bg-card border rounded-md overflow-hidden flex flex-col items-center">
+      <Image src="/full-banner-plain-cropped.svg" alt="ClearVote-logo" width={400} height={400} />
+      <section className="w-full max-w-2xl bg-card border bg-[#F5F4E9] rounded-md overflow-hidden flex flex-col items-center">
         <div className="mb-4 w-[calc(100%-2rem)] flex flex-col items-center">
-          <Image src="/favicon.jpg" alt="ClearVote-logo" width={200} height={200} />
           <h1 className="text-3xl font-semibold my-8">About Us</h1>
           <p>Our goal here at Clearvote is to help the public stay
             up-to-date during <strong>local</strong>, <strong>off-cycle</strong> elections and understand <strong>who </strong>
@@ -111,7 +111,7 @@ export default function About() {
             ClearVote has style, it is personalized, it is transparent, and it is not owned by anyone. By the people, for the people!
           </p>
           <br></br>
-          <Button size="lg">
+          <Button size="lg" className='bg-[#EEA37E] text-black hover:bg-[#e95635] hover:text-white'>
             <a href="/" target="_blank">Let&apos;s Get Started!</a>
           </Button>
         </div>

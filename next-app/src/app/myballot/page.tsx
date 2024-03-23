@@ -18,14 +18,15 @@ import Contests from "@/components/custom/contests"
 import contestData from '@/lib/data/contestData.json'
 import { Suspense } from 'react'
 
-export default function MyBallotPage({
-  searchParams,
-}: {
-  searchParams: { lat: string | undefined, lng: string | undefined }
-}) {
+interface Coordinates {
+  lat: string | undefined;
+  lng: string | undefined;
+}
+
+export default function MyBallotPage({ searchParams }: { searchParams: Coordinates }) {
 
   return (
-    <main className="min-h-screen my-32 flex flex-col gap-16 items-center">
+    <main className="min-h-screen py-32 flex flex-col gap-16 items-center bg-gradient-to-r from-[#FFA59E] to-[#CBAFEF]">
       <section className="max-w-[660px] flex flex-col gap-6 items-center">
         <Suspense>
           <Map
@@ -36,14 +37,14 @@ export default function MyBallotPage({
           {/* <LocationPicker />  TODO: implement */}
         </div>
 
-        <div className="my-8 flex flex-col gap-2 text-center">
-          <p className="text-lg font-600 text-disabled-foreground">Upcoming Election</p>
+        <div className="my-8 flex flex-col gap-2 text-center text-white">
+          <p className="text-lg font-600 text-disabled-foreground text-white">Upcoming Election</p>
           <h1>November General and Special Election</h1>
           <p className="text-lg my-4">A general election and a special election are both types of elections, but they serve different purposes and occur under different circumstances.</p>
 
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="subtle" className="self-center">What’s the difference between a general and special election?</Button>
+              <Button variant="subtle" className="self-center bg-[#947fee] text-white hover:text-black hover:bg-white">What’s the difference between a general and special election?</Button>
             </DialogTrigger>
             <DialogContent className="flex flex-col w-[calc(100vw-2rem)] sm:w-[calc(100vw-8rem)] max-w-screen-sm max-h-[calc(100vh-4rem)] pr-0 bg-clip-border">
               <DialogHeader>
@@ -83,7 +84,7 @@ export default function MyBallotPage({
         </div>
 
         <div className="w-full">
-          <h3>Dates and Deadlines</h3>
+          <h3 className="text-white">Dates and Deadlines</h3>
           <div className="scrolling-wrapper overflow-x-scroll py-4">
             <div className="flex flex-nowrap gap-4">
               <DateCard />
