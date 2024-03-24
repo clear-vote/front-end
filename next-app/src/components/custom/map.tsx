@@ -3,12 +3,11 @@
 import mapboxgl from "mapbox-gl";
 import { useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
+import { defaultCoords } from '../../app/myballot/page'
 
 interface MapProps {
     token: string | undefined;
 }
-
-const defaultCoords: number[] = [-122.3076595, 47.654538]
 
 export default function Map({ token }: MapProps) {
     if (!token) {
@@ -18,12 +17,8 @@ export default function Map({ token }: MapProps) {
     mapboxgl.accessToken = token || '';
     const mapContainer = useRef<HTMLDivElement>(null);
     const searchParams = useSearchParams()!;
-    let lng = parseFloat(searchParams.get('lng') || `${defaultCoords[0]}`);
-    let lat = parseFloat(searchParams.get('lat') || `${defaultCoords[1]}`);
-
-    // Validate lat and lng to be within Earth's geographical bounds
-    lat = isFinite(lat) && Math.abs(lat) <= 90 ? lat : defaultCoords[1];
-    lng = isFinite(lng) && Math.abs(lng) <= 180 ? lng : defaultCoords[0];
+    const lng = parseFloat(searchParams.get('lng') || `${defaultCoords[0]}`);
+    const lat = parseFloat(searchParams.get('lat') || `${defaultCoords[1]}`);
 
     useEffect(() => {
         if (mapContainer.current) {

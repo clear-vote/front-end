@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { Separator } from '@/components/ui/separator'
 import LocationPicker from '@/components/custom/location-picker'
@@ -22,6 +21,8 @@ interface Coordinates {
   lat: string | undefined;
   lng: string | undefined;
 }
+
+export const defaultCoords: number[] = [-122.3076595, 47.654538] // University of Washington
 
 export default function MyBallotPage({ searchParams }: { searchParams: Coordinates }) {
 
@@ -102,17 +103,9 @@ export default function MyBallotPage({ searchParams }: { searchParams: Coordinat
         <p>Showing contests for:</p>
         <h4>King County</h4>
         <p>there are {contestData.length} (debugging, delete this!)</p>
-        {/* TODO: Everything here is hardcoded. enable geodata support for this so it doesn't have to be!*/}
         <Contests
           contest_data={contestData}
           election_id={2}
-          congressional_district='7'
-          legislative_district='37'
-          county="king"
-          county_district="4"
-          city="seattle"
-          city_district="4"
-          school_district="1"
         />
       </section>
     </main>

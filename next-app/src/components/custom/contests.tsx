@@ -1,21 +1,15 @@
 'use client'
 
-import { ReactNode } from 'react'
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link'
-import { promises as fs } from 'fs';
 import Image from 'next/image'
-import { Button } from "@/components/ui/button"
-import { Badge } from '@/components/ui/badge'
-import { PfmBadge, PfmProps } from './unused/pfmBadge'
+import { defaultCoords } from '../../app/myballot/page'
 import {
      Dialog,
      DialogContent,
-     DialogDescription,
-     DialogHeader,
-     DialogTitle,
      DialogTrigger,
 } from "@/components/ui/dialog"
+import { useSearchParams } from 'next/navigation';
+// import cityCouncilData from '../../lib/data/city_council_district.geojson';
 
 interface PositionInfo {
      boundary_type: string;
@@ -55,29 +49,62 @@ interface ElectionItem {
 interface ContestProps {
      contest_data: ElectionItem[];
      election_id: number;
-     congressional_district: string;
-     legislative_district: string;
-     county: string;
-     county_district: string;
-     city: string;
-     city_district: string;
-     school_district: string;
+     // congressional_district: string;
+     // legislative_district: string;
+     // county: string;
+     // county_council_district: string;
+     // city: string;
+     // city_council_district: string;
+     // school_district: string;
 }
 
 const Contests = ({
      contest_data,
      election_id,
-     congressional_district,
-     legislative_district,
-     county,
-     county_district,
-     city,
-     city_district,
-     school_district,
 }: ContestProps) => {
      const [contests, setContests] = useState<Contest[]>([]);
+     const [congressional_district, setCongressionalDistrict] = useState('');
+     const [legislative_district, setLegislativeDistrict] = useState('');
+     const [county, setCounty] = useState('');
+     const [county_council_district, setCountyCouncilDistrict] = useState('');
+     const [city, setCity] = useState('');
+     const [city_council_district, setCityCouncilDistrict] = useState('');
+     const [school_district, setSchoolDistrict] = useState('');
 
+     const searchParams = useSearchParams()!;
+     let longitude = parseFloat(searchParams.get('lng') || `${defaultCoords[0]}`);
+     let latitude = parseFloat(searchParams.get('lat') || `${defaultCoords[1]}`);
+
+     const getDistrictInfoFromCoordinates = (longitude: number, latitude: number) => {
+          alert(longitude + ' ' + latitude)
+
+
+
+
+
+          return {
+               congressionalDistrict: '1',
+               legislativeDistrict: '1',
+               county: 'King',
+               countyCouncilDistrict: '1',
+               city: 'Seattle',
+               cityCouncilDistrict: '1',
+               schoolDistrict: '1',
+          };
+     };
+
+     // filters data to get only the selected contests
      useEffect(() => {
+          // Fetch district information based on coordinates
+          const districtInfo = getDistrictInfoFromCoordinates(longitude, latitude);
+          setCongressionalDistrict(districtInfo.congressionalDistrict);
+          setLegislativeDistrict(districtInfo.legislativeDistrict);
+          setCounty(districtInfo.county);
+          setCountyCouncilDistrict(districtInfo.countyCouncilDistrict);
+          setCity(districtInfo.city);
+          setCityCouncilDistrict(districtInfo.cityCouncilDistrict);
+          setSchoolDistrict(districtInfo.schoolDistrict);
+
           const fetchContests = async () => {
                try {
                     const filteredContests = contest_data
@@ -90,9 +117,9 @@ const Contests = ({
                                    (boundary_type === 'congressional' && district_char === congressional_district) ||
                                    (boundary_type === 'legislative' && district_char === legislative_district) ||
                                    (boundary_type === 'county' && area_name.toLowerCase() === county.toLowerCase()) ||
-                                   (boundary_type === 'county council' && district_char === county_district) ||
+                                   (boundary_type === 'county council' && district_char === county_council_district) ||
                                    (boundary_type === 'city' && area_name.toLowerCase() === city.toLowerCase()) ||
-                                   (boundary_type === 'city council' && district_char === city_district) ||
+                                   (boundary_type === 'city council' && district_char === city_council_district) ||
                                    (boundary_type === 'school district' && district_char === school_district)
                               );
                          });
@@ -103,7 +130,7 @@ const Contests = ({
           };
 
           fetchContests();
-     }, [contest_data, election_id, congressional_district, legislative_district, county, county_district, city, city_district, school_district]);
+     }, [contest_data, election_id, congressional_district, legislative_district, county, county_council_district, city, city_council_district, school_district, longitude, latitude]);
 
      // Ensure the component correctly handles rendering of contests
      return (
