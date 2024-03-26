@@ -13,9 +13,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 
-import Contests from "@/components/custom/contests"
-import contestData from '@/lib/data/contestData.json'
 import { Suspense } from 'react'
+import Elections from '@/components/custom/elections'
 
 interface Coordinates {
   lat: string | undefined;
@@ -84,31 +83,12 @@ export default function MyBallotPage({ searchParams }: { searchParams: Coordinat
 
         </div>
 
-        <div className="w-full">
-          <h3 className="text-white">Dates and Deadlines</h3>
-          <div className="scrolling-wrapper overflow-x-scroll py-4">
-            <div className="flex flex-nowrap gap-4">
-              <DateCard />
-              <DateCard />
-              <DateCard />
-            </div>
-          </div>
-        </div>
       </section>
 
 
       <section className="max-w-[1200px] w-[calc(100%-8rem)]">
-        <Separator />
-        <h2 className="mt-8 mb-4">On your ballot...</h2>
-        <p>Showing contests for:</p>
-        <h4>King County</h4>
-        <p>there are {contestData.length} (debugging, delete this!)</p>
-        <Contests
-          contest_data={contestData}
-          election_id={2}
-        />
+        <Elections />
       </section>
     </main>
   )
 }
-
