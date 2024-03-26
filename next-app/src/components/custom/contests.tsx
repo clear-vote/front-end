@@ -1,22 +1,18 @@
 'use client'
 
-import { ReactNode } from 'react'
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link'
-import { promises as fs } from 'fs';
 import Image from 'next/image'
-import { Button } from "@/components/ui/button"
-import { Badge } from '@/components/ui/badge'
-import { PfmBadge, PfmProps } from './unused/pfmBadge'
+// import { defaultCoords } from '../../app/myballot/page'
+
+
 import {
      Dialog,
      DialogContent,
-     DialogDescription,
-     DialogHeader,
-     DialogTitle,
      DialogTrigger,
 } from "@/components/ui/dialog"
+import { useSearchParams } from 'next/navigation';
 
+const defaultCoords: number[] = [-122.3076595, 47.654538] // TODO: should be an export
 interface PositionInfo {
      boundary_type: string;
      title_string: string;
@@ -55,31 +51,102 @@ interface ElectionItem {
 interface ContestProps {
      contest_data: ElectionItem[];
      election_id: number;
-     congressional_district: string;
-     legislative_district: string;
-     county: string;
-     county_district: string;
-     city: string;
-     city_district: string;
-     school_district: string;
+     // congressional_district: string;
+     // legislative_district: string;
+     // county: string;
+     // county_council_district: string;
+     // city: string;
+     // city_council_district: string;
+     // school_district: string;
 }
 
 const Contests = ({
      contest_data,
      election_id,
-     congressional_district,
-     legislative_district,
-     county,
-     county_district,
-     city,
-     city_district,
-     school_district,
 }: ContestProps) => {
      const [contests, setContests] = useState<Contest[]>([]);
+     // const [cityCouncilData, setCityCouncilData] = useState<any>({});
+     // const [cityData, setCityData] = useState<any>({});
+     // const [countyCouncilData, setCountyCouncilData] = useState<any>({});
+     // const [schoolDistrictData, setSchoolDistrictData] = useState<any>({});
+     // const [loading, setLoading] = useState(true);
+     // const [error, setError] = useState(null);
 
+     const searchParams = useSearchParams()!;
+     let longitude = parseFloat(searchParams.get('lng') || `${defaultCoords[0]}`);
+     let latitude = parseFloat(searchParams.get('lat') || `${defaultCoords[1]}`);
+
+
+     // filters data to get only the selected contests
      useEffect(() => {
+          // Fetch district information based on coordinates
           const fetchContests = async () => {
                try {
+                    // const fetchData = async (url: string) => {
+                    //      try {
+                    //           const response = await fetch(url);
+                    //           if (!response.ok) {
+                    //                throw new Error('Data could not be fetched!');
+                    //           } else {
+                    //                return await response.json();
+                    //           }
+                    //      } catch (err: any) {
+                    //           setError(err.message);
+                    //           setLoading(false);
+                    //      }
+                    // };
+                    // try {
+                    //      // Fetching multiple pieces of GeoJSON data in parallel
+                    //      const [data1, data2, data3, data4] = await Promise.all([
+                    //           fetchData('../../lib/data/city_council_district.geojson'),
+                    //           fetchData('../../lib/data/geojson/city.geojson'),
+                    //           fetchData('../../lib/data/geojson/county_council_district.geojson'),
+                    //           fetchData('../../lib/data/geojson/school_district.geojson'),
+                    //      ]);
+
+                    //      setCityCouncilData(data1);
+                    //      setCityData(data2)
+                    //      setCountyCouncilData(data3);
+                    //      setSchoolDistrictData(data4);
+                    // } catch (err: any) {
+                    //      setError(err.message);
+                    // } finally {
+                    //      setLoading(false);
+                    // }
+
+                    let city = '1';
+                    // alert(cityData.features)
+                    // for (let feature of cityData.features) {
+                    //      if (geoContains(feature, [longitude, latitude])) {
+                    //           city = feature.properties.name;
+                    //           break;
+                    //      }
+                    // }
+
+                    let countyCouncilDistrict = '1';
+                    // for (let feature of countyCouncilData.features) {
+                    //      if (geoContains(feature, [longitude, latitude])) {
+                    //           countyCouncilDistrict = feature.properties.name;
+                    //           break;
+                    //      }
+                    // }
+
+                    let cityCouncilDistrict = '1';
+                    // for (let feature of cityCouncilData.features) {
+                    //      if (geoContains(feature, [longitude, latitude])) {
+                    //           cityCouncilDistrict = feature.properties.name;
+                    //           break;
+                    //      }
+                    // }
+
+                    let schoolDistrict = '1';
+                    // for (let feature of schoolDistrictData.features) {
+                    //      if (geoContains(feature, [longitude, latitude])) {
+                    //           schoolDistrict = feature.properties.name;
+                    //           break;
+                    //      }
+                    // }
+
                     const filteredContests = contest_data
                          .filter((item: ElectionItem) => item.election_id === election_id)
                          .flatMap((item: ElectionItem) => item.contests)
@@ -87,13 +154,13 @@ const Contests = ({
                               const { position_info } = contest;
                               const { boundary_type, area_name, district_char } = position_info;
                               return (
-                                   (boundary_type === 'congressional' && district_char === congressional_district) ||
-                                   (boundary_type === 'legislative' && district_char === legislative_district) ||
-                                   (boundary_type === 'county' && area_name.toLowerCase() === county.toLowerCase()) ||
-                                   (boundary_type === 'county council' && district_char === county_district) ||
-                                   (boundary_type === 'city' && area_name.toLowerCase() === city.toLowerCase()) ||
-                                   (boundary_type === 'city council' && district_char === city_district) ||
-                                   (boundary_type === 'school district' && district_char === school_district)
+                                   (boundary_type === 'congressional' && district_char === '0') ||
+                                   (boundary_type === 'legislative' && district_char === '0') ||
+                                   (boundary_type === 'county' && area_name.toLowerCase() === 'king') ||
+                                   (boundary_type === 'county council' && district_char === countyCouncilDistrict) ||
+                                   (boundary_type === 'city' && area_name.toLowerCase() === city) ||
+                                   (boundary_type === 'city council' && district_char === cityCouncilDistrict) ||
+                                   (boundary_type === 'school district' && district_char === schoolDistrict)
                               );
                          });
                     setContests(filteredContests);
@@ -103,7 +170,7 @@ const Contests = ({
           };
 
           fetchContests();
-     }, [contest_data, election_id, congressional_district, legislative_district, county, county_district, city, city_district, school_district]);
+     }, [contest_data, election_id, longitude, latitude, /*cityCouncilData, cityData, countyCouncilData, schoolDistrictData*/]);
 
      // Ensure the component correctly handles rendering of contests
      return (
@@ -121,8 +188,6 @@ const Contests = ({
           </div>
      );
 };
-
-export default Contests;
 
 export function CandidateCard(props: Candidate) {
      return (
@@ -180,7 +245,4 @@ export function CandidateCard(props: Candidate) {
      )
 }
 
-
-
-
-
+export default Contests;
