@@ -3,7 +3,8 @@
 import mapboxgl from "mapbox-gl";
 import { useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
-import { defaultCoords } from '../../app/myballot/page'
+
+const defaultCoords: number[] = [-122.3076595, 47.654538]
 
 interface MapProps {
     token: string | undefined;
