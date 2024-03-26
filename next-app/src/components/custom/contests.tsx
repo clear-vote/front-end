@@ -9,7 +9,6 @@ import {
      DialogTrigger,
 } from "@/components/ui/dialog"
 import { useSearchParams } from 'next/navigation';
-import { geoContains } from 'd3-geo';
 
 interface PositionInfo {
      boundary_type: string;
@@ -63,12 +62,12 @@ const Contests = ({
      election_id,
 }: ContestProps) => {
      const [contests, setContests] = useState<Contest[]>([]);
-     const [cityCouncilData, setCityCouncilData] = useState<any>({});
-     const [cityData, setCityData] = useState<any>({});
-     const [countyCouncilData, setCountyCouncilData] = useState<any>({});
-     const [schoolDistrictData, setSchoolDistrictData] = useState<any>({});
-     const [loading, setLoading] = useState(true);
-     const [error, setError] = useState(null);
+     // const [cityCouncilData, setCityCouncilData] = useState<any>({});
+     // const [cityData, setCityData] = useState<any>({});
+     // const [countyCouncilData, setCountyCouncilData] = useState<any>({});
+     // const [schoolDistrictData, setSchoolDistrictData] = useState<any>({});
+     // const [loading, setLoading] = useState(true);
+     // const [error, setError] = useState(null);
 
      const searchParams = useSearchParams()!;
      let longitude = parseFloat(searchParams.get('lng') || `${defaultCoords[0]}`);
@@ -80,37 +79,37 @@ const Contests = ({
           // Fetch district information based on coordinates
           const fetchContests = async () => {
                try {
-                    const fetchData = async (url: string) => {
-                         try {
-                              const response = await fetch(url);
-                              if (!response.ok) {
-                                   throw new Error('Data could not be fetched!');
-                              } else {
-                                   return await response.json();
-                              }
-                         } catch (err: any) {
-                              setError(err.message);
-                              setLoading(false);
-                         }
-                    };
-                    try {
-                         // Fetching multiple pieces of GeoJSON data in parallel
-                         const [data1, data2, data3, data4] = await Promise.all([
-                              fetchData('../../lib/data/city_council_district.geojson'),
-                              fetchData('../../lib/data/geojson/city.geojson'),
-                              fetchData('../../lib/data/geojson/county_council_district.geojson'),
-                              fetchData('../../lib/data/geojson/school_district.geojson'),
-                         ]);
+                    // const fetchData = async (url: string) => {
+                    //      try {
+                    //           const response = await fetch(url);
+                    //           if (!response.ok) {
+                    //                throw new Error('Data could not be fetched!');
+                    //           } else {
+                    //                return await response.json();
+                    //           }
+                    //      } catch (err: any) {
+                    //           setError(err.message);
+                    //           setLoading(false);
+                    //      }
+                    // };
+                    // try {
+                    //      // Fetching multiple pieces of GeoJSON data in parallel
+                    //      const [data1, data2, data3, data4] = await Promise.all([
+                    //           fetchData('../../lib/data/city_council_district.geojson'),
+                    //           fetchData('../../lib/data/geojson/city.geojson'),
+                    //           fetchData('../../lib/data/geojson/county_council_district.geojson'),
+                    //           fetchData('../../lib/data/geojson/school_district.geojson'),
+                    //      ]);
 
-                         setCityCouncilData(data1);
-                         setCityData(data2)
-                         setCountyCouncilData(data3);
-                         setSchoolDistrictData(data4);
-                    } catch (err: any) {
-                         setError(err.message);
-                    } finally {
-                         setLoading(false);
-                    }
+                    //      setCityCouncilData(data1);
+                    //      setCityData(data2)
+                    //      setCountyCouncilData(data3);
+                    //      setSchoolDistrictData(data4);
+                    // } catch (err: any) {
+                    //      setError(err.message);
+                    // } finally {
+                    //      setLoading(false);
+                    // }
 
                     let city = '1';
                     // alert(cityData.features)
@@ -168,7 +167,7 @@ const Contests = ({
           };
 
           fetchContests();
-     }, [contest_data, election_id, longitude, latitude, cityCouncilData, cityData, countyCouncilData, schoolDistrictData]);
+     }, [contest_data, election_id, longitude, latitude, /*cityCouncilData, cityData, countyCouncilData, schoolDistrictData*/]);
 
      // Ensure the component correctly handles rendering of contests
      return (

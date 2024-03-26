@@ -1,6 +1,6 @@
 'use client'
 
-import { JSX, useState } from "react"
+import { useState } from "react"
 import DateCard from "./date-card"
 import { Separator } from "@radix-ui/react-separator"
 import Contests from "./contests"
