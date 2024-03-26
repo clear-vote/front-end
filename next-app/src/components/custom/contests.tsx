@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image'
 // import { defaultCoords } from '../../app/myballot/page'
 
-const defaultCoords: number[] = [-122.3076595, 47.654538] // TODO: should be an export
 
 import {
      Dialog,
@@ -13,6 +12,7 @@ import {
 } from "@/components/ui/dialog"
 import { useSearchParams } from 'next/navigation';
 
+const defaultCoords: number[] = [-122.3076595, 47.654538] // TODO: should be an export
 interface PositionInfo {
      boundary_type: string;
      title_string: string;
