@@ -21,7 +21,7 @@ interface Coordinates {
   lng: string | undefined;
 }
 
-export const defaultCoords: number[] = [-122.3076595, 47.654538] // University of Washington
+const defaultCoords: number[] = [-122.3076595, 47.654538] // University of Washington
 
 export default function MyBallotPage({ searchParams }: { searchParams: Coordinates }) {
 

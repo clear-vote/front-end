@@ -57,7 +57,7 @@ const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(
       } else {
         setSearchResults([]);
       }
-    }, [inputValue, token, bounds, maxResults]); // Dependency array includes inputValue, so the effect runs when inputValue changes
+    }, [inputValue, token, bounds, maxResults, shouldSearch]); // Dependency array includes inputValue, so the effect runs when inputValue changes
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
       if (event.key === "ArrowDown") {
