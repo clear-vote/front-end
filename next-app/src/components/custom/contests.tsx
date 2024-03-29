@@ -204,7 +204,7 @@ export function CandidateCard(props: Candidate) {
                               unoptimized={!!(props.image && props.image.startsWith('https://info.kingcounty.gov'))}
                          />
                          <p className="text-lg font-600">{props.name}</p>
-                         <p>{props.website}</p>
+                         <p className="break-all text-sm">{props.website}</p>
                     </div>
                </DialogTrigger>
                <DialogContent className="flex flex-col w-[calc(100vw-2rem)] sm:w-[calc(100vw-8rem)] max-w-screen-sm max-h-[calc(100vh-4rem)] pr-0 bg-clip-border">

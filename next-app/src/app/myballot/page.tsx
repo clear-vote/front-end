@@ -23,7 +23,11 @@ interface Coordinates {
 
 const defaultCoords: number[] = [-122.3076595, 47.654538] // University of Washington
 
-export default function MyBallotPage({ searchParams }: { searchParams: Coordinates }) {
+export default function MyBallotPage({
+  searchParams,
+}: {
+  searchParams: { lat: string | undefined, lng: string | undefined }
+}) {
 
   return (
     <main className="min-h-screen py-32 flex flex-col gap-16 items-center bg-gradient-to-r from-[#FFA59E] to-[#CBAFEF]">
@@ -37,8 +41,8 @@ export default function MyBallotPage({ searchParams }: { searchParams: Coordinat
           {/* <LocationPicker />  TODO: implement */}
         </div>
 
-        <div className="my-8 flex flex-col gap-2 text-center text-white">
-          <p className="text-lg font-600 text-disabled-foreground text-white">Upcoming Election</p>
+        <div className="my-8 flex flex-col gap-2 text-center">
+          <p className="text-lg font-600 text-disabled-foreground">Upcoming Election</p>
           <h1>November General and Special Election</h1>
           <p className="text-lg my-4">A general election and a special election are both types of elections, but they serve different purposes and occur under different circumstances.</p>
 
