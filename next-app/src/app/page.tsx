@@ -15,7 +15,7 @@ const MAX_RESULTS: number = 5;
 export default function Home() {
 
   return (
-    <main className="min-h-screen pt-32 flex flex-col items-center bg-gradient-to-r from-[#FFA59E] to-[#CBAFEF]">
+    <main className="min-h-screen pt-32 flex flex-col items-center bg-gradient-to-r from-[#FFA59E] to-[#CBAFEF] background_home">
       <ScrollUp />
       <section className="w-full max-w-lg text-center flex flex-col items-center">
         <h1 className="text-white">Welcome to</h1>
@@ -46,7 +46,7 @@ export default function Home() {
           <Separator className="grow shrink" />
         </div>
         <Button variant="subtle" className="bg-[#947fee] text-white hover:text-black hover:bg-white" asChild>
-          <Link href="/myballot">See Example<FontAwesomeIcon icon={faPlay} className="ml-2" /></Link>
+          <Link href="/myballot?example=true&lat=47.654538&lng=-122.3076595">See Example<FontAwesomeIcon icon={faPlay} className="ml-2" /></Link>
         </Button>
       </section>
     </main>
