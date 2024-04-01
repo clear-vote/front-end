@@ -52,8 +52,8 @@ const DateCard: React.FC<DateCardProps> = ({ election_type, voting_start, regist
   }
 
   return (
-    <div onClick={onClick} className="cursor-pointer">
-      <div className={`w-full md:w-[320px] flex-none bg-card elevation-1 border border-1 rounded-lg p-6 flex flex-col md:flex-row gap-6 items-center ${isDisabled ? 'opacity-50 pointer-events-none' : ''}`}>
+    <div onClick={isDisabled ? undefined : onClick} className={`cursor-pointer ${isDisabled ? 'pointer-events-none' : ''}`}>
+      <div className={`w-full md:w-[320px] flex-none bg-card elevation-1 border border-1 rounded-lg p-6 flex flex-col md:flex-row gap-6 items-center ${isDisabled ? 'bg-gray-300 pointer-events-none' : ''}`}>
         <div className="flex flex-col w-full gap-1 md:w-1/2">
           <h3>{election_type.charAt(0).toUpperCase() + election_type.slice(1)} Election</h3>
           <h4>{message1}</h4>

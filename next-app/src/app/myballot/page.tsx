@@ -86,9 +86,11 @@ export default function MyBallotPage({ searchParams }: { searchParams: Coordinat
       </section>
 
 
-      <section className="max-w-[1200px] w-[calc(100%-8rem)]">
+      <section className="max-w-[1200px] w-[calc(100%-8rem)] flex justify-center items-center">
         <Suspense>
-          <Elections />
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+            <Elections />
+          </div>
         </Suspense>
       </section>
     </main>
