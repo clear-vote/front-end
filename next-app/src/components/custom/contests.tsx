@@ -101,7 +101,7 @@ const Contests = ({
                     //           fetchData('../../lib/data/city_council_district.geojson'),
                     //           fetchData('../../lib/data/geojson/city.geojson'),
                     //           fetchData('../../lib/data/geojson/county_council_district.geojson'),
-                    //           fetchData('../../lib/data/geojson/school_district.geojson'),
+                    //           fetchData('https://students.washington.edu/jkru3/school_district.geojson'),
                     //      ]);
 
                     //      setCityCouncilData(data1);
@@ -174,15 +174,21 @@ const Contests = ({
 
      // Ensure the component correctly handles rendering of contests
      return (
-          <div>
+          <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
                {contests.map((contest, index) => (
                     <div key={index} className="contest-item">
-                         <h3>{contest.position_info.area_name} {contest.position_info.title_string}
-                              {contest.position_info.district_char ? ` district number ${contest.position_info.district_char}` : ''}
-                              {contest.position_info.position_char ? ` position number ${contest.position_info.position_char}` : ''}</h3>
-                         {contest.candidate_info ? contest.candidate_info.map((candidate, candidateIndex) => (
-                              <CandidateCard key={candidateIndex} {...candidate} />
-                         )) : <p>No candidates available.</p>}
+                         <h3 className="text-white">{contest.position_info.area_name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} {contest.position_info.title_string.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+                              {contest.position_info.district_char ? ` District Number ${contest.position_info.district_char}` : ''}
+                              {contest.position_info.position_char ? ` Position Number ${contest.position_info.position_char}` : ''}</h3>
+                         {contest.candidate_info ?
+                              <div style={{ display: 'flex', overflowX: 'auto', maxWidth: '100%' }}>
+                                   {contest.candidate_info.map((candidate, candidateIndex) => (
+                                        <div className="m-3" key={candidateIndex}>
+                                             <CandidateCard {...candidate} />
+                                        </div>
+                                   ))}
+                              </div>
+                              : <p>No candidates available.</p>}
                     </div>
                ))}
           </div>
