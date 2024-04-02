@@ -21,7 +21,7 @@ export default function About() {
     <main className="min-h-screen pt-32 flex flex-col gap-16 items-center bg-gradient-to-r from-[#FFA59E] to-[#CBAFEF]">
       <ScrollUp />
       <Image src="/full-banner-plain-cropped.svg" alt="ClearVote-logo" width={400} height={400} />
-      <section className="w-full max-w-2xl bg-card border bg-[#F5F4E9] rounded-md overflow-hidden flex flex-col items-center">
+      <section className="w-full max-w-2xl bg-card border bg-[#F5F4E9] glass rounded-md overflow-hidden flex flex-col items-center z-0">
         <div className="mb-4 w-[calc(100%-2rem)] flex flex-col items-center">
           <h1 className="text-3xl font-semibold my-8">About Us</h1>
           <p>Our goal here at Clearvote is to help the public stay
