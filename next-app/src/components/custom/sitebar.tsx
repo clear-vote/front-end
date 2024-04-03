@@ -11,7 +11,7 @@ import { faDiscord } from '@fortawesome/free-brands-svg-icons'
 export default function SiteBar() {
 
   return (
-    <nav className="bg-[#947fee] text-white elevation-1 px-8 py-3 flex justify-between items-center">
+    <nav className="bg-[#947fee] text-white drop-shadow px-8 py-3 flex justify-between items-center z-100">
       <Link href="/">
         <div className="relative flex items-center justify-center">
           <div className="absolute -z-10 rounded-full bg-white bg-opacity-50 blur-xl w-[72px] h-[72px]"></div>
