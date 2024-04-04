@@ -77,6 +77,7 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        lavender: "hsl(var(--lavender))",
       },
       borderRadius: {
         lg: "var(--radius)",
