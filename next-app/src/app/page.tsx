@@ -15,7 +15,7 @@ const MAX_RESULTS: number = 5;
 export default function Home() {
 
   return (
-    <main className="min-h-screen pt-32 flex flex-col items-center bg-gradient-to-r from-[#FFA59E] to-[#CBAFEF]">
+    <main className="min-h-screen pt-32 flex flex-col items-center background_home">
       <ScrollUp />
       <section className="w-full max-w-lg text-center flex flex-col items-center">
         <h1 className="text-white">Welcome to</h1>
