@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
@@ -11,16 +12,16 @@ import { faDiscord } from '@fortawesome/free-brands-svg-icons'
 export default function SiteBar() {
 
   return (
-    <nav className="bg-[#947fee] text-white drop-shadow px-8 py-3 flex justify-between items-center z-100">
+    <nav className="text-white elevation-1 px-8 py-3 flex justify-between items-center">
       <Link href="/">
         <div className="relative flex items-center justify-center">
           <div className="absolute -z-10 rounded-full bg-white bg-opacity-50 blur-xl w-[72px] h-[72px]"></div>
           <div className="relative">
-            <div className="absolute -inset-1 blur-lg bg-purple-400 opacity-75 rounded-full"></div>
+            <div className="absolute -inset-1 blur-lg bg-white opacity-25 rounded-full"></div>
             <Image
               src="/favicon-plain.svg"
-              width={50}
-              height={50}
+              width={75}
+              height={75}
               alt="clearvote logo"
               className="z-10 relative"
             />
@@ -35,7 +36,7 @@ export default function SiteBar() {
         </li>
         <li>
           <Button variant="ghost" size="sm" className="text-white hover:text-blue-300">
-            Blog
+            <Link href="https://medium.com/clearvote">Blog</Link>
           </Button>
         </li>
         <li>
