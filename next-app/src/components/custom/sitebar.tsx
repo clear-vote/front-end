@@ -26,6 +26,7 @@ export default function SiteBar() {
               className="z-10 relative"
             />
           </div>
+          <h3 className="text-black">Clearvote</h3> 
         </div>
       </Link>
       <ul className="flex gap-4 items-center">

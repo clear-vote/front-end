@@ -112,9 +112,9 @@ body {
 
 
 .background_home {
-	background: linear-gradient(-45deg, #23a6d5, #23d5ab, #ee7752, #e73c7e);
+	background: linear-gradient(-45deg, hsl(196, 76%, 39%), #FF964B 0%, #FB8383 36%, #F468A0 62%, #DC56E8 83%, #9D53FD 100%);
 	background-size: 400% 400%;
-	animation: gradient 8s ease infinite;
+	animation: gradient 6s ease infinite;
   height: 400%;
 }
 
