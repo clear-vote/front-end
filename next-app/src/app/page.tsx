@@ -46,7 +46,7 @@ export default function Home() {
           <Separator className="grow shrink" />
         </div>
         <Button variant="subtle" className="bg-[#947fee] text-white hover:text-black hover:bg-white" asChild>
-          <Link href="/myballot">See Example<FontAwesomeIcon icon={faPlay} className="ml-2" /></Link>
+          <Link href="/ballot">See Example<FontAwesomeIcon icon={faPlay} className="ml-2" /></Link>
         </Button>
       </section>
     </main>

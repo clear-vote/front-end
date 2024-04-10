@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image'
-// import { defaultCoords } from '../../app/myballot/page'
+// import { defaultCoords } from '../../app/ballot/page'
 
 
 import {

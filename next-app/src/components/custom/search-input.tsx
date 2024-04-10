@@ -97,8 +97,8 @@ const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(
         const [lng, lat] = center;
         if (typeof lng === 'number' && typeof lat === 'number' &&
           lng >= -180 && lng <= 180 && lat >= -90 && lat <= 90) {
-          // Coordinates are valid, redirect to /myballot with these coordinates
-          window.location.href = `/myballot?lat=${lat}&lng=${lng}`;
+          // Coordinates are valid, redirect to /ballot with these coordinates
+          window.location.href = `/ballot?lat=${lat}&lng=${lng}`;
         } else {
           alert('Invalid coordinates');
         }
