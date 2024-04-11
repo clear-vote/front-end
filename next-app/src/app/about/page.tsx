@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/accordion"
 import SiteBar from '@/components/custom/sitebar'
 import { SearchInput } from '@/components/custom/search-input'
+import Link from 'next/link'
 
 
 export default function About() {
@@ -112,7 +113,7 @@ export default function About() {
           </p>
           <br></br>
           <Button size="lg" className='bg-[#EEA37E] text-black hover:bg-[#e95635] hover:text-white'>
-            <a href="/" target="_blank">Let&apos;s Get Started!</a>
+            <Link href="/">Let&apos;s Get Started!</Link>
           </Button>
         </div>
 
