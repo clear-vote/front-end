@@ -26,7 +26,7 @@ const defaultCoords: number[] = [-122.3076595, 47.654538] // University of Washi
 export default function MyBallotPage({ searchParams }: { searchParams: Coordinates }) {
 
   return (
-    <main className="min-h-screen py-32 flex flex-col gap-16 items-center bg-gradient-to-r from-[#FFA59E] to-[#CBAFEF]">
+    <>
       <section className="max-w-[660px] flex flex-col gap-6 items-center">
         <Suspense>
           <Map
@@ -95,6 +95,7 @@ export default function MyBallotPage({ searchParams }: { searchParams: Coordinat
           </div>
         </Suspense>
       </section>
-    </main>
+      
+    </>
   )
 }

@@ -4,6 +4,7 @@ import * as React from "react"
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { Button } from "@/components/ui/button"
 
 import { cn } from "@/lib/utils";
 
@@ -120,8 +121,8 @@ const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(
           className,
         )}
       >
-        <div className="flex w-full">
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
+        <div className="flex w-full items-center">
+          <FontAwesomeIcon icon={faMagnifyingGlass} className="text-secondary" />
           <input
             {...props}
             type="search"
@@ -132,6 +133,7 @@ const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(
             onKeyDown={handleKeyDown} // Add the onKeyDown handler here
           />
         </div>
+
         {searchResults?.length > 0 && (
           <div className="absolute top-full mt-1 w-full z-10 border border-input bg-white rounded-md shadow-lg">
             <ul className="list-none max-h-60 overflow-auto">

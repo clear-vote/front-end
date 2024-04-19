@@ -21,11 +21,7 @@ export const metadata: Metadata = {
   description: 'Supporting local voters',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={plex.className}>
       {/* <head>
@@ -39,12 +35,14 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png"/>
         <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png"/>
       </head>
-      <body className="bg-background">
+      <body>
+
         <header className="fixed top-0 w-full">
-          <SiteBar />
+            <SiteBar />
         </header>
+
         {children}
-        </body>
+      </body>
     </html>
   )
 }

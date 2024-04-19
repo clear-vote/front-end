@@ -180,9 +180,3 @@ ul.styled {
 ul.styled > li {
   margin-top: 0.5rem;
 }
-
-.glass {
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-}
