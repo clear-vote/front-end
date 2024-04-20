@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useContext } from 'react';
-import { IContestProps, ICandidate, IElectionItem, IContest } from '@/components/custom/contests';
+import { IContestProps, ICandidate, IElectionItem, IContest, IPositionInfo } from '@/components/custom/contests';
 import { ContestDataContext } from '@/components/custom/elections'; // Import the ElectionInfoContext
 
 /// ============================================
@@ -20,7 +20,7 @@ import { ContestDataContext } from '@/components/custom/elections'; // Import th
 /// • This component should useContext to get 
 /// 
 /// TODOs
-/// • 
+/// • Render! Render! Render!
 /// ============================================
 
 // No need to pass contest_data as prop, it is accessible with useContext
@@ -31,21 +31,67 @@ interface PinnedCandidatesProps {
   // candidates: string[];
 }
 
+interface ICandidateSlotProps {
+  position_info: IPositionInfo;
+}
+
+// This is temporary. Please be temporary. God forbid this code be permanent.
+// Somehow needs to integrate with contestData.json.
+const userData = {
+  user_id: 1,
+  elections: [
+    {
+      election_id: 1,
+      pins: [
+        {
+          position: 'County Assessor',
+          candidate: 'John Wilson'
+        },
+        {
+          position: 'County Director of Elections',
+          candidate: 'Julie Wise'
+        },
+        {
+          position: 'City Council',
+          candidate: 'Rob Saka'
+        }
+      ]
+    }
+  ]
+};
+
 const PinnedCandidates: React.FC<PinnedCandidatesProps> = () => {
-  const { contestData, setContestData } = useContext(ContestDataContext);
+  const { contestData } = useContext(ContestDataContext);
   
   // const positions = contest_data.map((contest: IElectionItem) => contest.position);
   // const candidates = contest_data.map((contest: IElectionItem) => contest.candidates);
   return (
-    <div>
+    <div className="my-8 overflow-x-scroll">
       <h3>Pinned Candidates</h3>
-      <ul>
+      <ul className="flex gap-4 mt-4">
         {contestData.map((contest, index) => (
-          <li key={index}>{contest.position_info.title_string}</li>
+          <li key={index}>
+            <CandidateSlot position_info={contest.position_info} />
+            {/* {contest.position_info.title_string} */}
+          </li>
         ))}
       </ul>
     </div>
   );
 };
+
+function CandidateSlot({position_info}: ICandidateSlotProps) {
+  console.log(position_info);
+  return (
+    <div className="flex flex-col gap-4 items-center text-center">
+      <div className="border rounded-lg border-dashed bg-disabled w-[242px] h-[313px]">
+
+      </div>
+
+      <h4>{position_info.title_string}</h4>
+      <p>Chosen candidate</p>
+    </div>
+  );
+}
 
 export default PinnedCandidates;

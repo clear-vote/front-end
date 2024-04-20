@@ -77,7 +77,7 @@ export interface IContestProps {
 
 
 
-export default function Contests({ }) {
+export default function Contests() {
      const { contestData, setContestData } = useContext(ContestDataContext);
      // Ensure the component correctly handles rendering of contests
      return (

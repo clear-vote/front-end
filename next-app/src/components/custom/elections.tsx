@@ -188,6 +188,7 @@ export default function Elections() {
     // These states are declared and passed to useContext, overriding the default values.
     const [electionInfo, setElectionInfo] = useState("2023-nov");
     const [contestData, setContestData] = useState(new Array<IContest>());
+    const [userId, setUserId] = useState(0);
 
     useEffect(() => {
         console.log(convert(electionInfo).election_id);
@@ -246,10 +247,13 @@ export default function Elections() {
             <ElectionInfoContext.Provider value={{electionInfo, setElectionInfo}}>
                 <ElectionSelector />
                 <ElectionOverview />
-                <ContestDataContext.Provider value={{contestData, setContestData}}>
-                    <PinnedCandidates />
-                    <Contests />
-                </ContestDataContext.Provider>
+                {/* UserContext needs to be put somewhere else—namely, somewhere it can affect <Map> in /ballot. */}
+                <UserContext.Provider value={{userId, setUserId}}> 
+                    <ContestDataContext.Provider value={{contestData, setContestData}}>
+                        <PinnedCandidates />
+                        <Contests />
+                    </ContestDataContext.Provider>
+                </UserContext.Provider>
             </ElectionInfoContext.Provider>
 
         </div>
