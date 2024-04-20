@@ -37,8 +37,8 @@ export default function MyBallotPage({ searchParams }: { searchParams: Coordinat
           {/* <LocationPicker />  TODO: implement */}
         </div>
 
-        <div className="my-8 flex flex-col gap-2 text-center text-white">
-          <p className="text-lg font-600 text-disabled-foreground text-white">Upcoming Election</p>
+        <div className="my-8 flex flex-col gap-2 text-center">
+          <p className="text-lg font-600 text-disabled-foreground">Upcoming Election</p>
           <h1>November General and Special Election</h1>
           <p className="text-lg my-4">A general election and a special election are both types of elections, but they serve different purposes and occur under different circumstances.</p>
 
