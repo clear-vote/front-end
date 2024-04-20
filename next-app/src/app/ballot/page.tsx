@@ -5,6 +5,25 @@ import LocationPicker from '@/components/custom/location-picker'
 import DateCard from '@/components/custom/date-card'
 import Map from '@/components/custom/map'
 import Elections from '@/components/custom/elections'
+import { createContext, Dispatch, SetStateAction } from 'react';
+
+
+/// ============================================
+/// Summary
+/// This file handles the server side rendering for the ballot page.
+///
+/// Remarks
+/// • 
+/// 
+/// TODOs
+/// • Add a location picker
+/// • Get the map pin working
+/// • If possible, update map styling
+///   • (the text appearing below the map is kinda ugly)
+///   • (figure out how to add a rounded border + border-clipping)
+/// ============================================
+
+
 
 interface Coordinates {
   lat: string | undefined;
@@ -12,6 +31,8 @@ interface Coordinates {
 }
 
 const defaultCoords: number[] = [-122.3076595, 47.654538] // University of Washington
+
+
 
 export default function MyBallotPage({ searchParams }: { searchParams: Coordinates }) {
 

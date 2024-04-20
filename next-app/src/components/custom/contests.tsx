@@ -12,8 +12,24 @@ import {
 } from "@/components/ui/dialog"
 import { useSearchParams } from 'next/navigation';
 
+
+/// ============================================
+/// Summary
+/// 
+///
+/// Remarks
+/// • 
+/// 
+/// TODOs
+/// • This component should useContext for the filtered data. This way, re-rendering is triggered from elections.tsx.
+/// • 
+/// ============================================
+
+
+
+
 const defaultCoords: number[] = [-122.3076595, 47.654538] // TODO: should be an export
-interface PositionInfo {
+export interface IPositionInfo {
      boundary_type: string;
      title_string: string;
      area_name: string;
@@ -21,12 +37,12 @@ interface PositionInfo {
      position_char: string | null;
 }
 
-interface Contest {
-     position_info: PositionInfo;
-     candidate_info: Candidate[]; // Define this more precisely based on your actual data structure
+export interface IContest {
+     position_info: IPositionInfo;
+     candidate_info: ICandidate[]; // Define this more precisely based on your actual data structure
 }
 
-interface Candidate {
+export interface ICandidate {
      name: string | null;
      image: string | null;
      email: string | null;
@@ -39,17 +55,17 @@ interface Candidate {
      politigram_quotes: any[] | null;
 }
 
-interface ElectionItem {
+export interface IElectionItem {
      election_id: number;
      election_type: string;
      voting_start: number;
      register_by: number;
      voting_end: number;
-     contests: Contest[];
+     contests: IContest[];
 }
 
-interface ContestProps {
-     contest_data: ElectionItem[];
+export interface IContestProps {
+     contest_data: IElectionItem[];
      election_id: number;
      // congressional_district: string;
      // legislative_district: string;
@@ -63,8 +79,8 @@ interface ContestProps {
 const Contests = ({
      contest_data,
      election_id,
-}: ContestProps) => {
-     const [contests, setContests] = useState<Contest[]>([]);
+}: IContestProps) => {
+     const [contests, setContests] = useState<IContest[]>([]);
      // const [cityCouncilData, setCityCouncilData] = useState<any>({});
      // const [cityData, setCityData] = useState<any>({});
      // const [countyCouncilData, setCountyCouncilData] = useState<any>({});
@@ -148,9 +164,9 @@ const Contests = ({
                     // }
 
                     const filteredContests = contest_data
-                         .filter((item: ElectionItem) => item.election_id === election_id)
-                         .flatMap((item: ElectionItem) => item.contests)
-                         .filter((contest: Contest) => {
+                         .filter((item: IElectionItem) => item.election_id === election_id)
+                         .flatMap((item: IElectionItem) => item.contests)
+                         .filter((contest: IContest) => {
                               const { position_info } = contest;
                               const { boundary_type, area_name, district_char } = position_info;
                               return (
@@ -195,7 +211,7 @@ const Contests = ({
      );
 };
 
-export function CandidateCard(props: Candidate) {
+export function CandidateCard(props: ICandidate) {
      return (
           <Dialog>
                <DialogTrigger>

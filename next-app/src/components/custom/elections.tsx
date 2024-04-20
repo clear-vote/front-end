@@ -1,5 +1,6 @@
 'use client'
 import { createContext, useContext, useState, Dispatch, SetStateAction, useEffect, use } from 'react';
+import { IContestProps, ICandidate, IElectionItem, IContest } from '@/components/custom/contests';
 
 import '@/app/styles.css';
 import { Separator } from "@radix-ui/react-separator"
@@ -24,9 +25,9 @@ import {
     SelectSeparator,
   } from "@/components/ui/select"
 
-import DateCard from "./date-card"
+import PinnedCandidates from './pinned-candidates';
 import Contests from "./contests"
-import contestData from '@/lib/data/contestData.json'
+import contestDataFile from '@/lib/data/contestData.json'
 import conversions from '@/lib/data/contestConversion.json'
 
 
@@ -44,29 +45,61 @@ import conversions from '@/lib/data/contestConversion.json'
 ///     • Maybe update format of IConversion? Lots of overlapping data for easier entry...
 ///     • Potentially, create a script that handles all conversions from contestData.json. 
 ///     • Notably, there should be a way to convert a number (e.g. 20230714) into year, month, day.
-///     • Also consider creating a "dictionary" file, which can be used to populate election descriptions.
+///     • Also consider creating a dictionary system for election descriptions.
 /// • Use conversions to populate options in <ElectionSelector>
 /// • Use conversions to populate <ElectionOverview> (Dates & Deadlines)
 /// • *Update buttons in <ElectionOverview> to link to the correct pages.
 /// • Stop sitebar from changing width when <ElectionSelector> is clicked.
+/// • Update sitebar styling, the glass effect is really ugly rn lol
+///
+/// • Add ContestData as a context, to pass down to <Contests> and <PinnedCandidates>.
+/// • Figure out where to put UserContext...
 /// ============================================
+
+
+
 
 
 ///////////////////////////////////////
 //////////////// Utils ////////////////
 ///////////////////////////////////////
 
-// ElectionContext is used to store the current election id as a context.
-// A context is similar to useState(), but it is global and can be accessed by any child component. This makes for cleaner code.
-interface IElectionContext {
-    curElection: string;
-    setCurElection: Dispatch<SetStateAction<string>>;
+// Note: A context is similar to useState(), but it is global and can be accessed by any child component. This makes for cleaner code.
+
+// Stores the current election id as a context.
+interface IElectionInfoContext {
+    electionInfo: string;
+    setElectionInfo: Dispatch<SetStateAction<string>>;
 }
 
-const ElectionContext = createContext<IElectionContext>({
-    curElection: "2023-nov",
-    setCurElection: () => {},
+const ElectionInfoContext = createContext<IElectionInfoContext>({
+    electionInfo: "2023-nov",
+    setElectionInfo: () => {},
 });
+
+
+// Note: Mutating should be done by creating a new array with setContestData(), not by pushing to contestData.
+// src: https://react.dev/learn/updating-arrays-in-state 
+interface IContestDataContext {
+    contestData: IContest[];
+    setContestData: Dispatch<SetStateAction<IContest[]>>;
+}
+
+export const ContestDataContext = createContext<IContestDataContext>({
+    contestData: new Array<IContest>(),
+    setContestData: () => {},
+});
+
+interface IUserContext {
+    userId: number;
+    setUserId: Dispatch<SetStateAction<number>>;
+  }
+  
+export const UserContext = createContext<IUserContext>({
+userId: 0,
+setUserId: () => {},
+});
+  
 
 
 
@@ -78,6 +111,7 @@ interface IConversion {
     "selected_text": string;
 }
 
+// Returns type IConversion (i.e. JSON)
 function convert<IConversion>(value: string) {
     let json = conversions.filter(
         function(data){ return data.option == value }
@@ -87,6 +121,63 @@ function convert<IConversion>(value: string) {
 }
 
 
+// Returns a filtered data set from contestData.json, in order to update ContestDataContext & pass to children.
+function filterContests(election_id: number) {
+
+    let city = '1';
+    // alert(cityData.features)
+    // for (let feature of cityData.features) {
+    //      if (geoContains(feature, [longitude, latitude])) {
+    //           city = feature.properties.name;
+    //           break;
+    //      }
+    // }
+
+    let countyCouncilDistrict = '1';
+    // for (let feature of countyCouncilData.features) {
+    //      if (geoContains(feature, [longitude, latitude])) {
+    //           countyCouncilDistrict = feature.properties.name;
+    //           break;
+    //      }
+    // }
+
+    let cityCouncilDistrict = '1';
+    // for (let feature of cityCouncilData.features) {
+    //      if (geoContains(feature, [longitude, latitude])) {
+    //           cityCouncilDistrict = feature.properties.name;
+    //           break;
+    //      }
+    // }
+
+    let schoolDistrict = '1';
+    // for (let feature of schoolDistrictData.features) {
+    //      if (geoContains(feature, [longitude, latitude])) {
+    //           schoolDistrict = feature.properties.name;
+    //           break;
+    //      }
+    // }
+
+    const filteredContests = contestDataFile
+                         .filter((item: IElectionItem) => item.election_id === election_id)
+                         .flatMap((item: IElectionItem) => item.contests)
+                         .filter((contest: IContest) => {
+                              const { position_info } = contest;
+                              const { boundary_type, area_name, district_char } = position_info;
+                              return (
+                                   (boundary_type === 'congressional' && district_char === '0') ||
+                                   (boundary_type === 'legislative' && district_char === '0') ||
+                                   (boundary_type === 'county' && area_name.toLowerCase() === 'king') ||
+                                   (boundary_type === 'county council' && district_char === countyCouncilDistrict) ||
+                                   (boundary_type === 'city' && area_name.toLowerCase() === city) ||
+                                   (boundary_type === 'city council' && district_char === cityCouncilDistrict) ||
+                                   (boundary_type === 'school district' && district_char === schoolDistrict)
+                              );
+                         });
+    return filteredContests;
+}
+
+
+
 
 ////////////////////////////////////////
 ////////////// Components //////////////
@@ -94,18 +185,27 @@ function convert<IConversion>(value: string) {
 
 // <Elections> contains the election selector, overview, and contests.
 export default function Elections() {
-    const [curElection, setCurElection] = useState("2023-nov");
+    const [electionInfo, setElectionInfo] = useState("2023-nov");
+    const [contestData, setContestData] = useState(new Array<IContest>());
+
+    useEffect(() => {
+        console.log(convert(electionInfo).election_id);
+        setContestData(filterContests(convert(electionInfo).election_id));
+    }, [electionInfo]);
 
     return (
         <div className="w-full">
-            <ElectionContext.Provider value={{curElection, setCurElection}}>
+            <ElectionInfoContext.Provider value={{electionInfo, setElectionInfo}}>
                 <ElectionSelector />
                 <ElectionOverview />
-                {/* <Contests
-                    contest_data={contestData}
-                    election_id={lastClickedId}
-                /> */}
-            </ElectionContext.Provider>
+                <ContestDataContext.Provider value={{contestData, setContestData}}>
+                    <PinnedCandidates />
+                    {/* <Contests
+                        contest_data={contestData}
+                        election_id={convert(electionInfo).election_id}
+                    /> */}
+                </ContestDataContext.Provider>
+            </ElectionInfoContext.Provider>
 
         </div>
     );
@@ -113,12 +213,12 @@ export default function Elections() {
 
 // <ElectionOverview>
 function ElectionOverview() {
-    const { curElection, setCurElection } = useContext(ElectionContext);
+    const { electionInfo, setElectionInfo } = useContext(ElectionInfoContext);
 
-    let election = convert(curElection);
+    let election = convert(electionInfo);
     useEffect(() => {
-        election = convert(curElection);
-    }, [curElection]);
+        election = convert(electionInfo);
+    }, [electionInfo]);
 
 
     return (
@@ -159,13 +259,13 @@ function ElectionOverview() {
 }
 
 function ElectionSelector() {
-    const { curElection, setCurElection } = useContext(ElectionContext);
+    const { electionInfo, setElectionInfo } = useContext(ElectionInfoContext);
 
     return (
-        <Select defaultValue={curElection} value={curElection} onValueChange={(value: string) => setCurElection(value)}>
+        <Select defaultValue={electionInfo} value={electionInfo} onValueChange={(value: string) => setElectionInfo(value)}>
           <SelectTrigger className="w-[277px]">
-            <SelectValue aria-label={curElection} >
-                {convert(curElection).selected_text}
+            <SelectValue aria-label={electionInfo} >
+                {convert(electionInfo).selected_text}
             </SelectValue>
           </SelectTrigger>
           <SelectContent>
