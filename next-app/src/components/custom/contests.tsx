@@ -177,7 +177,7 @@ const Contests = ({
           <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
                {contests.map((contest, index) => (
                     <div key={index} className="contest-item">
-                         <h3 className="text-white">{contest.position_info.area_name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} {contest.position_info.title_string.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+                         <h3 className="">{contest.position_info.area_name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} {contest.position_info.title_string.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
                               {contest.position_info.district_char ? ` District Number ${contest.position_info.district_char}` : ''}
                               {contest.position_info.position_char ? ` Position Number ${contest.position_info.position_char}` : ''}</h3>
                          {contest.candidate_info ?

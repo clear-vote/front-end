@@ -98,25 +98,6 @@ body {
   box-shadow: 0px 0px 4px -2px rgba(24, 39, 75, 0.08), 0px 0px 4px -2px rgba(24, 39, 75, 0.12);
 }
 
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
-
-.background_home {
-	background: linear-gradient(-45deg, hsl(196, 76%, 39%), #FF964B 0%, #FB8383 36%, #F468A0 62%, #DC56E8 83%, #9D53FD 100%);
-	background-size: 400% 400%;
-	animation: gradient 6s ease infinite;
-  height: 400%;
-}
 
 /* --- Typography --- */
 h1 {

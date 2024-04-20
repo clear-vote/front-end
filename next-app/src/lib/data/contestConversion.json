@@ -1,0 +1,44 @@
+[
+  {
+    "election_id": 1,
+    "option": "2023-aug",
+    "option_text": "August Primary",
+    "selected_text": "2023 • August Primary",
+    "title": "August 2023 Primary Election"
+  },
+  {
+    "election_id": 2,
+    "option": "2023-nov",
+    "option_text": "November General",
+    "selected_text": "2023 • November General",
+    "title": "November 2023 General Election"
+  },
+  {
+    "election_id": 3,
+    "option": "2024-feb",
+    "option_text": "February Special",
+    "selected_text": "2024 • February Special",
+    "title": "February 2024 Special Election"
+  },
+  {
+    "election_id": 4,
+    "option": "2024-apr",
+    "option_text": "April Special",
+    "selected_text": "2024 • April Special",
+    "title": "April 2024 Special Election"
+  },
+  {
+    "election_id": 5,
+    "option": "2024-aug",
+    "option_text": "August Primary",
+    "selected_text": "2024 • August Primary",
+    "title": "August 2024 Primary Election"
+  },
+  {
+    "election_id": 6,
+    "option": "2024-nov",
+    "option_text": "November General",
+    "selected_text": "2024 • November General",
+    "title": "November 2024 General Election"
+  }
+]

@@ -115,8 +115,7 @@ const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(
     };
 
     return (
-      <div
-        className={cn(
+      <div className={cn(
           "relative flex flex-col h-auto items-start rounded-md border border-input bg-white pl-3 py-2 text-md ring-offset-background focus-within:ring-1 focus-within:ring-ring focus-within:ring-offset-2",
           className,
         )}

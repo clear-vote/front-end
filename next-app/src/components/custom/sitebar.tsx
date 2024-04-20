@@ -12,8 +12,21 @@ import { faDiscord } from '@fortawesome/free-brands-svg-icons'
 
 import '@/app/styles.css'
 
-// This component references the current url to determine how it should be displayed.
+/// ============================================
+/// Summary
+/// • The SiteBar() component is used to handle global navigation on the site.
+///
+/// Remarks
+/// • This should only implemented once, in @/app/layout.tsx. 
+/// 
+/// TODO
+/// • Update styling, the glass effect looks really ugly right now.
+/// ============================================
+
+
 export default function SiteBar() {
+  
+  // References the current url to determine how it should be displayed.
   const pathname = usePathname();
   let isHome = (pathname === "/");
 
@@ -50,14 +63,14 @@ export default function SiteBar() {
         </li>
         <li>
           <Button variant="ghost" size="sm" className="hover:text-blue-300">
-            <Link href="https://medium.com/clearvote">Blog</Link>
+            <Link href="https://medium.com/clearvote" target="_blank">Blog</Link>
           </Button>
         </li>
-        <li>
+        {/* <li>
           <Button variant="ghost" size="sm" className="hover:text-blue-300">
             Help
           </Button>
-        </li>
+        </li> */}
         <li>
           <Button variant="discord" asChild className="bg-[#cbafef] text-white hover:text-[#e95635] hover:bg-white bg-black">
             <Link href="https://discord.gg/8mvz4S7Z" target="_blank">
