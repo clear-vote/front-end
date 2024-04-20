@@ -32,20 +32,22 @@ import conversions from '@/lib/data/contestConversion.json'
 
 /// ============================================
 /// Summary
-/// • 
+/// This file contains the Election components for the /ballot page.
 ///
 /// Remarks
 /// • The current selection is managed through two things: IElectionContext, and IConversion.
+///     • IElectionContext is basically useState(), but can be accessed by any child (rather than being passed as props).
+///     • IConversion is a JSON file that contains the conversion data for election ids. This was made to translate between <ElectionSelector> and contestData.json.
 /// 
 /// TODOs
-/// • Automate the creation of contestConversion.json.
+/// • *Automate the creation of contestConversion.json.
 ///     • Maybe update format of IConversion? Lots of overlapping data for easier entry...
 ///     • Potentially, create a script that handles all conversions from contestData.json. 
 ///     • Notably, there should be a way to convert a number (e.g. 20230714) into year, month, day.
 ///     • Also consider creating a "dictionary" file, which can be used to populate election descriptions.
 /// • Use conversions to populate options in <ElectionSelector>
 /// • Use conversions to populate <ElectionOverview> (Dates & Deadlines)
-/// • Update buttons in <ElectionOverview> to link to the correct pages.
+/// • *Update buttons in <ElectionOverview> to link to the correct pages.
 /// • Stop sitebar from changing width when <ElectionSelector> is clicked.
 /// ============================================
 
@@ -158,7 +160,6 @@ function ElectionOverview() {
 
 function ElectionSelector() {
     const { curElection, setCurElection } = useContext(ElectionContext);
-
 
     return (
         <Select defaultValue={curElection} value={curElection} onValueChange={(value: string) => setCurElection(value)}>
