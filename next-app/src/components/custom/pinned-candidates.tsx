@@ -11,7 +11,7 @@ import { ContestDataContext } from '@/components/custom/elections'; // Import th
 /// 3. Requests and renders the current user's pinned candidate for each position.
 /// 4. Whenever a change in pinned candidates is detected, the component re-renders.***
 ///
-/// *** see todos
+/// *** this happens when the current user's selection changes
 ///
 /// Remarks
 /// • This component should useContext for the filtered data. This way, re-rendering is triggered from elections.tsx.

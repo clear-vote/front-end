@@ -185,12 +185,60 @@ function filterContests(election_id: number) {
 
 // <Elections> contains the election selector, overview, and contests.
 export default function Elections() {
+    // These states are declared and passed to useContext, overriding the default values.
     const [electionInfo, setElectionInfo] = useState("2023-nov");
     const [contestData, setContestData] = useState(new Array<IContest>());
 
     useEffect(() => {
         console.log(convert(electionInfo).election_id);
-        setContestData(filterContests(convert(electionInfo).election_id));
+
+        // This async pattern sucks, but I don't know how to do it properly
+        const fetchContests = async () => {
+
+            // Fetch district information based on coordinates
+            try {
+                setContestData(filterContests(convert(electionInfo).election_id));
+
+                /// ————— old code —————
+                // const fetchData = async (url: string) => {
+                //      try {
+                //           const response = await fetch(url);
+                //           if (!response.ok) {
+                //                throw new Error('Data could not be fetched!');
+                //           } else {
+                //                return await response.json();
+                //           }
+                //      } catch (err: any) {
+                //           setError(err.message);
+                //           setLoading(false);
+                //      }
+                // };
+                // try {
+                //      // Fetching multiple pieces of GeoJSON data in parallel
+                //      const [data1, data2, data3, data4] = await Promise.all([
+                //           fetchData('../../lib/data/city_council_district.geojson'),
+                //           fetchData('../../lib/data/geojson/city.geojson'),
+                //           fetchData('../../lib/data/geojson/county_council_district.geojson'),
+                //           fetchData('https://students.washington.edu/jkru3/school_district.geojson'),
+                //      ]);
+
+                //      setCityCouncilData(data1);
+                //      setCityData(data2)
+                //      setCountyCouncilData(data3);
+                //      setSchoolDistrictData(data4);
+                // } catch (err: any) {
+                //      setError(err.message);
+                // } finally {
+                //      setLoading(false);
+                // }
+                /// ————— old code —————
+            } catch (error) {
+                console.error("Failed to load contests", error);
+            }
+       }
+
+       fetchContests();
+
     }, [electionInfo]);
 
     return (
@@ -200,10 +248,7 @@ export default function Elections() {
                 <ElectionOverview />
                 <ContestDataContext.Provider value={{contestData, setContestData}}>
                     <PinnedCandidates />
-                    {/* <Contests
-                        contest_data={contestData}
-                        election_id={convert(electionInfo).election_id}
-                    /> */}
+                    <Contests />
                 </ContestDataContext.Provider>
             </ElectionInfoContext.Provider>
 
@@ -258,6 +303,8 @@ function ElectionOverview() {
     );
 }
 
+// Pulls the election id from the ElectionInfoContext.
+// TODO: use a combination of electionInfo and convert() to populate the options.
 function ElectionSelector() {
     const { electionInfo, setElectionInfo } = useContext(ElectionInfoContext);
 
