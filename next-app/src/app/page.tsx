@@ -9,6 +9,11 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
 import SiteBar from '@/components/custom/sitebar'
+<<<<<<< Updated upstream
+=======
+import '@/app/styles.css';
+import BetaBanner from '@/components/custom/beta-banner'
+>>>>>>> Stashed changes
 
 const KING_COUNTY: string = [-122.515967, 47.096484, -121.333360, 47.734145].join(',');
 const MAX_RESULTS: number = 5;
@@ -16,8 +21,15 @@ const MAX_RESULTS: number = 5;
 export default function Home() {
 
   return (
+<<<<<<< Updated upstream
       <main className="min-h-screen pt-32 flex flex-col items-center background_home">
+=======
+      <main className="min-h-screen pt-24 flex flex-col items-center bg-home">
+>>>>>>> Stashed changes
         <ScrollUp />
+        <section className="max-w-[calc(100vw-8rem)] w-full mb-16">
+          <BetaBanner />
+        </section>
         <section className="w-full max-w-lg text-center flex flex-col items-center">
           <h1 className="text-white">Welcome to</h1>
           <div className="flex justify-center">

@@ -15,6 +15,29 @@ import {
 
 import { Suspense } from 'react'
 import Elections from '@/components/custom/elections'
+<<<<<<< Updated upstream
+=======
+import { createContext, Dispatch, SetStateAction } from 'react';
+import BetaBanner from '@/components/custom/beta-banner'
+
+
+/// ============================================
+/// Summary
+/// This file handles the server side rendering for the ballot page.
+///
+/// Remarks
+/// • 
+/// 
+/// TODOs
+/// • Add a location picker
+/// • Get the map pin working
+/// • If possible, update map styling
+///   • (the text appearing below the map is kinda ugly)
+///   • (figure out how to add a rounded border + border-clipping)
+/// ============================================
+
+
+>>>>>>> Stashed changes
 
 interface Coordinates {
   lat: string | undefined;
@@ -26,6 +49,7 @@ const defaultCoords: number[] = [-122.3076595, 47.654538] // University of Washi
 export default function MyBallotPage({ searchParams }: { searchParams: Coordinates }) {
 
   return (
+<<<<<<< Updated upstream
     <>
       <section className="max-w-[660px] flex flex-col gap-6 items-center">
         <Suspense>
@@ -34,6 +58,21 @@ export default function MyBallotPage({ searchParams }: { searchParams: Coordinat
           />
         </Suspense>
         <div className="max-w-[500px] w-full" >
+=======
+    <main className="min-h-screen py-24 flex flex-col gap-8 items-center bg-gradient-to-r from-[#FFF4F3] to-[#F5EDFF]">
+      <section className="max-w-[calc(100vw-8rem)] w-full">
+        <BetaBanner />
+      </section>
+      <section className="max-w-[calc(100vw-8rem)] w-full p-16 flex flex-col gap-6 items-center bg-gradient rounded-xl">
+        <div className="max-w-[660px] w-full text-white">
+          <Suspense>
+            <Map
+              token={process.env.MAPBOX_TOKEN}
+            />
+          </Suspense>
+        </div>
+        <div className="max-w-[500px] w-full hidden" >
+>>>>>>> Stashed changes
           {/* <LocationPicker />  TODO: implement */}
         </div>
 

@@ -25,6 +25,7 @@ const config = {
       xs: ['0.75rem', '1.5em'],
       sm: ['0.875rem', '1.5em'],
       md: ['1rem', '1.5em'],
+      mdlg: ['1.125rem', '1.5em'],
       lg: ['1.25rem', '1.5em'],
       xl: ['1.5rem', '1.15em'],
       '2xl': ['2rem', '1.1em'],

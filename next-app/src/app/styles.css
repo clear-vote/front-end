@@ -4,4 +4,40 @@
   /* -webkit-backdrop-filter: blur(10px); */
   backdrop-filter: blur(1px);
   /* border-radius: 10px; */
+<<<<<<< Updated upstream
 }
+=======
+}
+
+
+/* --- Bouncing Gradient Bg --- */
+.bg-home {
+	background: linear-gradient(-45deg, hsl(196, 76%, 39%), #FF964B 0%, #FB8383 36%, #F468A0 62%, #DC56E8 83%, #9D53FD 100%);
+	background-size: 400% 400%;
+	animation: gradient 6s ease infinite;
+  height: 400%;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.bg-gradient {
+  background: linear-gradient(135deg, #FF964B 0%, #FB8383 36%, #F468A0 62%, #DC56E8 83%, #9D53FD 100%);
+}
+
+.bg-gradient-yellow {
+  background: linear-gradient(130deg, #FFC554 0%, #FF964B 100%);
+}
+
+
+/* --- Bespoke Use-cases --- */
+>>>>>>> Stashed changes
