@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dialog"
 import { useSearchParams } from 'next/navigation';
 import { ContestDataContext } from '@/components/custom/elections'; // Import the ElectionInfoContext
+import { Button } from '@/components/ui/button';
 
 
 /// ============================================
@@ -81,12 +82,19 @@ export default function Contests() {
      const { contestData, setContestData } = useContext(ContestDataContext);
      // Ensure the component correctly handles rendering of contests
      return (
-          <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
+          <div className="flex flex-col gap-8">
                {contestData.map((contest, index) => (
-                    <div key={index} className="contest-item">
-                         <h3 className="">{contest.position_info.area_name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} {contest.position_info.title_string.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
-                              {contest.position_info.district_char ? ` District Number ${contest.position_info.district_char}` : ''}
-                              {contest.position_info.position_char ? ` Position Number ${contest.position_info.position_char}` : ''}</h3>
+                    <div key={index} className="contest-item lex-none bg-card elevation-1 border border-1 rounded-lg flex overflow-x-scroll">
+                         <div className="border-border border-r flex flex-col p-6 justify-between w-2/5">
+                              <div className="flex flex-col gap-3">
+                                   <h3 className="">{contest.position_info.area_name.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} {contest.position_info.title_string.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+                                        {contest.position_info.district_char ? ` District Number ${contest.position_info.district_char}` : ''}
+                                        {contest.position_info.position_char ? ` Position Number ${contest.position_info.position_char}` : ''}</h3>
+                         
+                              </div>
+                              <Button variant="outline" className="self-start" disabled={true}>Learn more</Button>
+                         </div>
+
                          {contest.candidate_info ?
                               <div style={{ display: 'flex', overflowX: 'auto', maxWidth: '100%' }}>
                                    {contest.candidate_info.map((candidate, candidateIndex) => (
@@ -100,8 +108,10 @@ export default function Contests() {
                     </div>
                ))}
           </div>
+          
      );
 }
+
 
 export function CandidateCard(props: ICandidate) {
      return (
