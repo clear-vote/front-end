@@ -11,7 +11,7 @@ export default function BetaBanner() {
     <div className="flex items-center px-6 py-4 bg-gradient-yellow rounded-lg">
       <FontAwesomeIcon icon={faCircleInfo} className="mr-3" />
       <h4 className="mr-4 text-mdlg">Clearvote [beta1.1]</h4>
-      <p className="text-mdlg">You're previewing an early version of Clearvote.</p>
+      <p className="text-mdlg">You&apos;re previewing an early version of Clearvote.</p>
     </div>
   );
 }
