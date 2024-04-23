@@ -52,6 +52,7 @@ export default function Map({ token }: MapProps) {
     }, [lat, lng]);
 
     return (
-        <div ref={mapContainer} style={{ width: '100%', height: '400px', backgroundColor: 'lightgray' }} />
+        <div ref={mapContainer} style={{ width: '100%', height: '400px', backgroundColor: 'lightgray' }} 
+            className="rounded-lg bg-clip-border border" />
     );
 }
