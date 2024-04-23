@@ -5,8 +5,6 @@ import LocationPicker from '@/components/custom/location-picker'
 import DateCard from '@/components/custom/date-card'
 import Map from '@/components/custom/map'
 import Elections from '@/components/custom/elections'
-<<<<<<< Updated upstream
-=======
 import { createContext, Dispatch, SetStateAction } from 'react';
 import BetaBanner from '@/components/custom/beta-banner'
 
@@ -26,9 +24,6 @@ import BetaBanner from '@/components/custom/beta-banner'
 ///   • (figure out how to add a rounded border + border-clipping)
 /// ============================================
 
-
->>>>>>> Stashed changes
-
 interface Coordinates {
   lat: string | undefined;
   lng: string | undefined;
@@ -41,16 +36,6 @@ const defaultCoords: number[] = [-122.3076595, 47.654538] // University of Washi
 export default function MyBallotPage({ searchParams }: { searchParams: Coordinates }) {
 
   return (
-<<<<<<< Updated upstream
-    <>
-      <section className="max-w-[660px] flex flex-col gap-6 items-center">
-        <Suspense>
-          <Map
-            token={process.env.MAPBOX_TOKEN}
-          />
-        </Suspense>
-        <div className="max-w-[500px] w-full" >
-=======
     <main className="min-h-screen py-24 flex flex-col gap-8 items-center bg-gradient-to-r from-[#FFF4F3] to-[#F5EDFF]">
       <section className="max-w-[calc(100vw-8rem)] w-full">
         <BetaBanner />
@@ -64,7 +49,6 @@ export default function MyBallotPage({ searchParams }: { searchParams: Coordinat
           </Suspense>
         </div>
         <div className="max-w-[500px] w-full hidden" >
->>>>>>> Stashed changes
           {/* <LocationPicker />  TODO: implement */}
         </div>
       </section>
