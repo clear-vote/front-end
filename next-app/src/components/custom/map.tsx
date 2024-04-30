@@ -28,31 +28,31 @@ export default function Map({ token }: MapProps) {
                 style: 'mapbox://styles/mapbox/streets-v11',
                 center: [lng, lat],
                 zoom: 3,
-                interactive: false // This line prevents the map from being moved around
+                interactive: false
             });
 
-            // TODO: map marker currently does not work as expected :(
-            // const marker = new mapboxgl.Marker({
-            //     color: "#e95635",
-            //     draggable: false
-            // }).setLngLat([lng, lat])
-            //     .addTo(map);
-
-            // zooms map in
             map.on('load', function () {
-                const zoomOffset = 0.02
+                const zoomOffset = 0.02;
                 map.fitBounds([
                     [lng - zoomOffset, lat - zoomOffset], // Southwest coordinates
                     [lng + zoomOffset, lat + zoomOffset]  // Northeast coordinates
                 ]);
+                const marker = new mapboxgl.Marker({
+                    color: "#e95635",
+                    draggable: false,
+
+                })
+                .setLngLat([lng, lat])
+                .addTo(map);
             });
+            
 
             return () => map.remove();
-        }
-    }, [lat, lng]);
+        } });
 
     return (
         <div ref={mapContainer} style={{ width: '100%', height: '400px', backgroundColor: 'lightgray' }} 
-            className="rounded-lg bg-clip-border border" />
+            className="rounded-lg bg-clip-border border">
+      </div>
     );
 }

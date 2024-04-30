@@ -7,6 +7,7 @@ import Map from '@/components/custom/map'
 import Elections from '@/components/custom/elections'
 import { createContext, Dispatch, SetStateAction } from 'react';
 import BetaBanner from '@/components/custom/beta-banner'
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 
 /// ============================================
@@ -18,7 +19,6 @@ import BetaBanner from '@/components/custom/beta-banner'
 /// 
 /// TODOs
 /// • Add a location picker
-/// • Get the map pin working
 /// • If possible, update map styling
 ///   • (the text appearing below the map is kinda ugly)
 ///   • (figure out how to add a rounded border + border-clipping)

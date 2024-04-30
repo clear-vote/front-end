@@ -16,6 +16,10 @@
   /* border-radius: 10px; */
 }
 
+.marker{
+  margin: 0;
+}
+
 /* --- Bouncing Gradient Bg --- */
 .bg-home {
 	background: linear-gradient(-45deg, hsl(196, 76%, 39%), #FF964B 0%, #FB8383 36%, #F468A0 62%, #DC56E8 83%, #9D53FD 100%);
