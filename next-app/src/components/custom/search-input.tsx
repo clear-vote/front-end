@@ -3,7 +3,7 @@
 import * as React from "react"
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { Button } from "@/components/ui/button"
 
 import { cn } from "@/lib/utils";
@@ -121,7 +121,8 @@ const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(
         )}
       >
         <div className="flex w-full items-center">
-          <FontAwesomeIcon icon={faMagnifyingGlass} className="text-secondary" />
+          <button onClick={handleEnterKey} className="rounded-lg w-1/6 h-full bg-[#947fee] hover:bg-[#D3D3D3]">
+            <FontAwesomeIcon icon={faMagnifyingGlass} className=""/></button>
           <input
             {...props}
             type="search"
