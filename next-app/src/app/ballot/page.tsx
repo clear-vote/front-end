@@ -20,7 +20,6 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 /// TODOs
 /// • Add a location picker
 /// • If possible, update map styling
-///   • (the text appearing below the map is kinda ugly)
 ///   • (figure out how to add a rounded border + border-clipping)
 /// ============================================
 
