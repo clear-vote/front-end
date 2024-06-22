@@ -116,13 +116,12 @@ const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div className={cn(
-          "relative flex flex-col h-auto items-start rounded-md border border-input bg-white pl-3 py-2 text-md ring-offset-background focus-within:ring-1 focus-within:ring-ring focus-within:ring-offset-2",
+          "relative flex flex-col h-auto items-start rounded-md border border-input bg-white pl-3 py-2 px-1 text-md ring-offset-background focus-within:ring-1 focus-within:ring-ring focus-within:ring-offset-2",
           className,
         )}
       >
         <div className="flex w-full items-center">
-          <button onClick={handleEnterKey} className="rounded-lg w-1/6 h-full bg-[#947fee] hover:bg-[#D3D3D3]">
-            <FontAwesomeIcon icon={faMagnifyingGlass} className=""/></button>
+        <FontAwesomeIcon icon={faMagnifyingGlass} className=""/>
           <input
             {...props}
             type="search"
@@ -132,6 +131,8 @@ const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(
             onChange={handleInputChange}
             onKeyDown={handleKeyDown} // Add the onKeyDown handler here
           />
+          <button onClick={handleEnterKey} className="rounded-lg w-1/6 h-full bg-[#947fee] hover:bg-[#D3D3D3] ">
+          <FontAwesomeIcon icon={faMagnifyingGlass} className=""/></button><span></span>
         </div>
 
         {searchResults?.length > 0 && (
