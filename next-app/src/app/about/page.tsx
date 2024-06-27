@@ -31,6 +31,7 @@ export default function About() {
           </p>
           <h1 className="text-3xl font-semibold my-8">Who We Are</h1>
           <Image src="/star.jpg" alt="Team-photo" width={400} height={200} />
+          <br></br>
           <h3>Why?</h3>
           <br></br>
           <p>

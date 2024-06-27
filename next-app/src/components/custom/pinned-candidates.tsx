@@ -66,8 +66,10 @@ const PinnedCandidates: React.FC<PinnedCandidatesProps> = () => {
   // const positions = contest_data.map((contest: IElectionItem) => contest.position);
   // const candidates = contest_data.map((contest: IElectionItem) => contest.candidates);
   return (
-    <div className="my-8 overflow-x-scroll">
-      <h3>Pinned Candidates</h3>
+    <div className="my-8">
+    <h3>Pinned Candidates</h3>
+    <div className="overflow-x-scroll">
+      
       <ul className="flex gap-4 mt-4">
         {contestData.map((contest, index) => (
           <li key={index}>
@@ -76,6 +78,7 @@ const PinnedCandidates: React.FC<PinnedCandidatesProps> = () => {
           </li>
         ))}
       </ul>
+    </div>
     </div>
   );
 };
@@ -88,7 +91,7 @@ function CandidateSlot({position_info}: ICandidateSlotProps) {
 
       </div>
 
-      <h4>{position_info.title_string}</h4>
+      <h4 className="capitalize">{position_info.title_string}</h4>
       <p>Chosen candidate</p>
     </div>
   );
