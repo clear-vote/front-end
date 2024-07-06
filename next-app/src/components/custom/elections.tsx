@@ -1,6 +1,6 @@
 'use client'
-import { createContext, useContext, useState, Dispatch, SetStateAction, useEffect, use } from 'react';
-import { IContestProps, ICandidate, IElectionItem, IContest } from '@/components/custom/contests';
+import { createContext, useContext, useState, Dispatch, SetStateAction, useEffect } from 'react';
+import { IContest } from '@/components/custom/contests';
 
 import '@/app/styles.css';
 import { Separator } from "@radix-ui/react-separator"
@@ -27,7 +27,7 @@ import {
 
 import PinnedCandidates from './pinned-candidates';
 import Contests from "./contests"
-import contestDataFile from '@/lib/data/contestData.json'
+
 import conversions from '@/lib/data/contestConversion.json'
 
 
@@ -70,6 +70,15 @@ import conversions from '@/lib/data/contestConversion.json'
 interface IElectionInfoContext {
     electionInfo: string;
     setElectionInfo: Dispatch<SetStateAction<string>>;
+}
+
+interface IElectionItem {
+    election_id: number;
+    election_type: string;
+    voting_start: number;
+    register_by: number;
+    voting_end: number;
+    contests: IContest[];
 }
 
 const ElectionInfoContext = createContext<IElectionInfoContext>({
@@ -117,67 +126,9 @@ function convert<IConversion>(value: string) {
         function(data){ return data.option == value }
     );
     // console.log("Converted [" + value + "] to id:[" + json[0].election_id + "]");
+    console.log("yeet", json[0]);
     return json[0];
 }
-
-
-// Returns a filtered data set from contestData.json, in order to update ContestDataContext & pass to children.
-function filterContests(election_id: number) {
-
-    let city = '1';
-    // alert(cityData.features)
-    // for (let feature of cityData.features) {
-    //      if (geoContains(feature, [longitude, latitude])) {
-    //           city = feature.properties.name;
-    //           break;
-    //      }
-    // }
-
-    let countyCouncilDistrict = '1';
-    // for (let feature of countyCouncilData.features) {
-    //      if (geoContains(feature, [longitude, latitude])) {
-    //           countyCouncilDistrict = feature.properties.name;
-    //           break;
-    //      }
-    // }
-
-    let cityCouncilDistrict = '1';
-    // for (let feature of cityCouncilData.features) {
-    //      if (geoContains(feature, [longitude, latitude])) {
-    //           cityCouncilDistrict = feature.properties.name;
-    //           break;
-    //      }
-    // }
-
-    let schoolDistrict = '1';
-    // for (let feature of schoolDistrictData.features) {
-    //      if (geoContains(feature, [longitude, latitude])) {
-    //           schoolDistrict = feature.properties.name;
-    //           break;
-    //      }
-    // }
-
-    const filteredContests = contestDataFile
-                         .filter((item: IElectionItem) => item.election_id === election_id)
-                         .flatMap((item: IElectionItem) => item.contests)
-                         .filter((contest: IContest) => {
-                              const { position_info } = contest;
-                              const { boundary_type, area_name, district_char } = position_info;
-                              return (
-                                   (boundary_type === 'congressional' && district_char === '0') ||
-                                   (boundary_type === 'legislative' && district_char === '0') ||
-                                   (boundary_type === 'county' && area_name.toLowerCase() === 'king') ||
-                                   (boundary_type === 'county council' && district_char === countyCouncilDistrict) ||
-                                   (boundary_type === 'city' && area_name.toLowerCase() === city) ||
-                                   (boundary_type === 'city council' && district_char === cityCouncilDistrict) ||
-                                   (boundary_type === 'school district' && district_char === schoolDistrict)
-                              );
-                         });
-    return filteredContests;
-}
-
-
-
 
 ////////////////////////////////////////
 ////////////// Components //////////////
@@ -187,60 +138,33 @@ function filterContests(election_id: number) {
 export default function Elections() {
     // These states are declared and passed to useContext, overriding the default values.
     const [electionInfo, setElectionInfo] = useState("2023-nov");
+        // TOTAL election info
     const [contestData, setContestData] = useState(new Array<IContest>());
     const [userId, setUserId] = useState(0);
 
-    useEffect(() => {
-        console.log(convert(electionInfo).election_id);
 
-        // This async pattern sucks, but I don't know how to do it properly
-        const fetchContests = async () => {
+    // Set for ALL retrieved election data
+    const [eData, setEData] = useState(new Array<IElectionItem>);
+    // The selected election, which by default, is the most current one that is populated
+    const [selectedElection, setSelectedElection] = useState<IElectionItem | null>(null);
 
-            // Fetch district information based on coordinates
-            try {
-                setContestData(filterContests(convert(electionInfo).election_id));
 
-                /// ————— old code —————
-                // const fetchData = async (url: string) => {
-                //      try {
-                //           const response = await fetch(url);
-                //           if (!response.ok) {
-                //                throw new Error('Data could not be fetched!');
-                //           } else {
-                //                return await response.json();
-                //           }
-                //      } catch (err: any) {
-                //           setError(err.message);
-                //           setLoading(false);
-                //      }
-                // };
-                // try {
-                //      // Fetching multiple pieces of GeoJSON data in parallel
-                //      const [data1, data2, data3, data4] = await Promise.all([
-                //           fetchData('../../lib/data/city_council_district.geojson'),
-                //           fetchData('../../lib/data/geojson/city.geojson'),
-                //           fetchData('../../lib/data/geojson/county_council_district.geojson'),
-                //           fetchData('https://students.washington.edu/jkru3/school_district.geojson'),
-                //      ]);
 
-                //      setCityCouncilData(data1);
-                //      setCityData(data2)
-                //      setCountyCouncilData(data3);
-                //      setSchoolDistrictData(data4);
-                // } catch (err: any) {
-                //      setError(err.message);
-                // } finally {
-                //      setLoading(false);
-                // }
-                /// ————— old code —————
-            } catch (error) {
-                console.error("Failed to load contests", error);
-            }
-       }
-
-       fetchContests();
-
-    }, [electionInfo]);
+    // TODO: fetch json data from calling http://35.88.126.46/?longitude=0&latitude=0 here and set to contestData.json
+    useEffect(() => { // Use useEffect to fetch data on component mount
+        fetch('http://35.88.126.46/?longitude=0&latitude=0')
+            .then(response => response.json())
+            .then(data => {
+                setEData(data);
+                const validElections = eData.filter(election => election.contests.length > 0);
+                const latestElection = validElections.reduce((prev, current) => (prev.election_id > current.election_id) ? prev : current, validElections[0]);
+                if (latestElection.election_id !== null) {
+                    setSelectedElection(latestElection); // TODO: remove this redundancy
+                    setContestData(latestElection.contests);
+                }
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }, [eData]); // Empty dependency array to run only once
 
     return (
         <div className="w-full">
