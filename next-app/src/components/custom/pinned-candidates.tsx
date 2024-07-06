@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useContext } from 'react';
-import { IContestProps, ICandidate, IElectionItem, IContest, IPositionInfo } from '@/components/custom/contests';
-import { ContestDataContext } from '@/components/custom/elections'; // Import the ElectionInfoContext
+import { IPositionInfo } from '@/components/custom/contests';
+import { ElectionInfoContext } from '@/components/custom/elections'; // Import the ElectionInfoContext
 
 /// ============================================
 /// Summary
@@ -61,7 +61,23 @@ const userData = {
 };
 
 const PinnedCandidates: React.FC<PinnedCandidatesProps> = () => {
-  const { contestData } = useContext(ContestDataContext);
+  const { electionData, selectedElectionId } = useContext(ElectionInfoContext);
+
+  // TODO: should probably just make a helper function for this
+     // Ensure electionData is loaded and not empty
+  if (!electionData || electionData.length === 0) {
+      return <div>Loading...</div>; // Or any other placeholder content
+  }
+  
+  // Filter the election data to find the matching election
+  const filteredElections = electionData.filter(election => election.election_id === selectedElectionId);
+  
+  // Check if there is at least one election that matches the selected ID
+  if (filteredElections.length === 0 || !filteredElections[0].contests) {
+        return <div>No contests found for the selected election.</div>;
+  }
+  
+  const contestData = filteredElections[0].contests;
   
   // const positions = contest_data.map((contest: IElectionItem) => contest.position);
   // const candidates = contest_data.map((contest: IElectionItem) => contest.candidates);

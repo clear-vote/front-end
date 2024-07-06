@@ -1,6 +1,6 @@
 'use client'
-import { createContext, useContext, useState, Dispatch, SetStateAction, useEffect, use } from 'react';
-import { IContestProps, ICandidate, IElectionItem, IContest } from '@/components/custom/contests';
+import { createContext, useContext, useState, Dispatch, SetStateAction, useEffect } from 'react';
+import { IContest } from '@/components/custom/contests';
 
 import '@/app/styles.css';
 import { Separator } from "@radix-ui/react-separator"
@@ -27,7 +27,7 @@ import {
 
 import PinnedCandidates from './pinned-candidates';
 import Contests from "./contests"
-import contestDataFile from '@/lib/data/contestData.json'
+
 import conversions from '@/lib/data/contestConversion.json'
 
 
@@ -67,117 +67,68 @@ import conversions from '@/lib/data/contestConversion.json'
 // Note: A context is similar to useState(), but it is global and can be accessed by any child component. This makes for cleaner code.
 
 // Stores the current election id as a context.
+export interface IElectionItem {
+    election_id: number;
+    election_type: string;
+    voting_start: number;
+    register_by: number;
+    voting_end: number;
+    contests: IContest[];
+}
+
 interface IElectionInfoContext {
-    electionInfo: string;
-    setElectionInfo: Dispatch<SetStateAction<string>>;
+    electionData: IElectionItem[];
+    selectedElectionId: number;
+    setSelectedElectionId(selectedElectionId: number): void;
 }
 
-const ElectionInfoContext = createContext<IElectionInfoContext>({
-    electionInfo: "2023-nov",
-    setElectionInfo: () => {},
+export const ElectionInfoContext = createContext<IElectionInfoContext>({
+    electionData: new Array<IElectionItem>(),
+    selectedElectionId: 0,
+    setSelectedElectionId: () => {},
 });
 
+// // Note: Mutating should be done by creating a new array with setContestData(), not by pushing to contestData.
+// // src: https://react.dev/learn/updating-arrays-in-state 
+// interface IContestDataContext {
+//     contestData: IContest[];
+//     setContestData: Dispatch<SetStateAction<IContest[]>>;
+// }
 
-// Note: Mutating should be done by creating a new array with setContestData(), not by pushing to contestData.
-// src: https://react.dev/learn/updating-arrays-in-state 
-interface IContestDataContext {
-    contestData: IContest[];
-    setContestData: Dispatch<SetStateAction<IContest[]>>;
-}
-
-export const ContestDataContext = createContext<IContestDataContext>({
-    contestData: new Array<IContest>(),
-    setContestData: () => {},
-});
+// export const ContestDataContext = createContext<IContestDataContext>({
+//     contestData: new Array<IContest>(),
+//     setContestData: () => {},
+// });
 
 interface IUserContext {
     userId: number;
     setUserId: Dispatch<SetStateAction<number>>;
-  }
+}
   
 export const UserContext = createContext<IUserContext>({
-userId: 0,
-setUserId: () => {},
+    userId: 0,
+    setUserId: () => {},
 });
   
 
 
 
-// IConversion is used to store the conversion data for the election ids.
-interface IConversion {
-    "election_id": number;
-    "option": string;
-    "option_text": string;
-    "selected_text": string;
-}
+// // IConversion is used to store the conversion data for the election ids.
+// interface IConversion {
+//     "election_id": number;
+//     "option": string;
+//     "option_text": string;
+//     "selected_text": string;
+// }
 
-// Returns type IConversion (i.e. JSON)
-function convert<IConversion>(value: string) {
-    let json = conversions.filter(
-        function(data){ return data.option == value }
-    );
-    // console.log("Converted [" + value + "] to id:[" + json[0].election_id + "]");
-    return json[0];
-}
-
-
-// Returns a filtered data set from contestData.json, in order to update ContestDataContext & pass to children.
-function filterContests(election_id: number) {
-
-    let city = '1';
-    // alert(cityData.features)
-    // for (let feature of cityData.features) {
-    //      if (geoContains(feature, [longitude, latitude])) {
-    //           city = feature.properties.name;
-    //           break;
-    //      }
-    // }
-
-    let countyCouncilDistrict = '1';
-    // for (let feature of countyCouncilData.features) {
-    //      if (geoContains(feature, [longitude, latitude])) {
-    //           countyCouncilDistrict = feature.properties.name;
-    //           break;
-    //      }
-    // }
-
-    let cityCouncilDistrict = '1';
-    // for (let feature of cityCouncilData.features) {
-    //      if (geoContains(feature, [longitude, latitude])) {
-    //           cityCouncilDistrict = feature.properties.name;
-    //           break;
-    //      }
-    // }
-
-    let schoolDistrict = '1';
-    // for (let feature of schoolDistrictData.features) {
-    //      if (geoContains(feature, [longitude, latitude])) {
-    //           schoolDistrict = feature.properties.name;
-    //           break;
-    //      }
-    // }
-
-    const filteredContests = contestDataFile
-                         .filter((item: IElectionItem) => item.election_id === election_id)
-                         .flatMap((item: IElectionItem) => item.contests)
-                         .filter((contest: IContest) => {
-                              const { position_info } = contest;
-                              const { boundary_type, area_name, district_char } = position_info;
-                              return (
-                                   (boundary_type === 'congressional' && district_char === '0') ||
-                                   (boundary_type === 'legislative' && district_char === '0') ||
-                                   (boundary_type === 'county' && area_name.toLowerCase() === 'king') ||
-                                   (boundary_type === 'county council' && district_char === countyCouncilDistrict) ||
-                                   (boundary_type === 'city' && area_name.toLowerCase() === city) ||
-                                   (boundary_type === 'city council' && district_char === cityCouncilDistrict) ||
-                                   (boundary_type === 'school district' && district_char === schoolDistrict)
-                              );
-                         });
-    return filteredContests;
-}
-
-
-
+// // Returns type IConversion (i.e. JSON)
+// function convert<IConversion>(value: string) {
+//     let json = conversions.filter(
+//         function(data){ return data.option == value }
+//     );
+//     // console.log("Converted [" + value + "] to id:[" + json[0].election_id + "]");
+//     return json[0];
+// }
 
 ////////////////////////////////////////
 ////////////// Components //////////////
@@ -185,74 +136,41 @@ function filterContests(election_id: number) {
 
 // <Elections> contains the election selector, overview, and contests.
 export default function Elections() {
-    // These states are declared and passed to useContext, overriding the default values.
-    const [electionInfo, setElectionInfo] = useState("2023-nov");
-    const [contestData, setContestData] = useState(new Array<IContest>());
+    // Set the userId
     const [userId, setUserId] = useState(0);
+    // Set for ALL retrieved election data
+    const [electionData, setElectionData] = useState(new Array<IElectionItem>);
+    // The selected election, which by default, is the most current one that is populated
+    const [selectedElectionId, setSelectedElectionId] = useState(0);
 
-    useEffect(() => {
-        console.log(convert(electionInfo).election_id);
 
-        // This async pattern sucks, but I don't know how to do it properly
-        const fetchContests = async () => {
 
-            // Fetch district information based on coordinates
-            try {
-                setContestData(filterContests(convert(electionInfo).election_id));
-
-                /// ————— old code —————
-                // const fetchData = async (url: string) => {
-                //      try {
-                //           const response = await fetch(url);
-                //           if (!response.ok) {
-                //                throw new Error('Data could not be fetched!');
-                //           } else {
-                //                return await response.json();
-                //           }
-                //      } catch (err: any) {
-                //           setError(err.message);
-                //           setLoading(false);
-                //      }
-                // };
-                // try {
-                //      // Fetching multiple pieces of GeoJSON data in parallel
-                //      const [data1, data2, data3, data4] = await Promise.all([
-                //           fetchData('../../lib/data/city_council_district.geojson'),
-                //           fetchData('../../lib/data/geojson/city.geojson'),
-                //           fetchData('../../lib/data/geojson/county_council_district.geojson'),
-                //           fetchData('https://students.washington.edu/jkru3/school_district.geojson'),
-                //      ]);
-
-                //      setCityCouncilData(data1);
-                //      setCityData(data2)
-                //      setCountyCouncilData(data3);
-                //      setSchoolDistrictData(data4);
-                // } catch (err: any) {
-                //      setError(err.message);
-                // } finally {
-                //      setLoading(false);
-                // }
-                /// ————— old code —————
-            } catch (error) {
-                console.error("Failed to load contests", error);
-            }
-       }
-
-       fetchContests();
-
-    }, [electionInfo]);
+    // TODO: fetch json data from calling http://35.88.126.46/?longitude=0&latitude=0 here and set to contestData.json
+    useEffect(() => { // Use useEffect to fetch data on component mount
+        fetch('http://35.88.126.46/?longitude=0&latitude=0')
+            .then(response => response.json())
+            .then(data => {
+                setElectionData(data);
+                const validElections = electionData.filter(election => election.contests.length > 0);
+                const latestElection = validElections.reduce((prev, current) => (prev.election_id > current.election_id) ? prev : current, validElections[0]);
+                if (latestElection.election_id !== 0) {
+                    setSelectedElectionId(latestElection.election_id); // TODO: remove this redundancy
+                }
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }, [electionData]); // Empty dependency array to run only once
 
     return (
         <div className="w-full">
-            <ElectionInfoContext.Provider value={{electionInfo, setElectionInfo}}>
+            <ElectionInfoContext.Provider value={{electionData, selectedElectionId, setSelectedElectionId}}>
                 <ElectionSelector />
                 <ElectionOverview />
                 {/* UserContext needs to be put somewhere else—namely, somewhere it can affect <Map> in /ballot. */}
                 <UserContext.Provider value={{userId, setUserId}}> 
-                    <ContestDataContext.Provider value={{contestData, setContestData}}>
-                        <PinnedCandidates />
-                        <Contests />
-                    </ContestDataContext.Provider>
+                    {/* <ContestDataContext.Provider value={{contestData, setContestData}}> */}
+                    <PinnedCandidates />
+                    <Contests />
+                    {/* </ContestDataContext.Provider> */}
                 </UserContext.Provider>
             </ElectionInfoContext.Provider>
 
@@ -260,15 +178,24 @@ export default function Elections() {
     );
 };
 
-// <ElectionOverview>
+// TODO: we should make a component that solely goes through and adds string data we can update for each election?
+function getElectionString(election: IElectionItem) {
+    if (!election) {
+        return { title: "Loading Election..." }; // Placeholder while waiting for data
+    }
+    switch (election.election_id) {
+        case 1: return {title: "2023 August Primary Election"}
+        case 2: return {title: "2023 November General Election"};
+        case 3: return {title: "2024 August Primary Election"};
+        default: return {title: "Unknown Election"};
+    }
+}
+
+// TODO: we can get some more context here about the date
 function ElectionOverview() {
-    const { electionInfo, setElectionInfo } = useContext(ElectionInfoContext);
+    const { electionData, selectedElectionId } = useContext(ElectionInfoContext);
 
-    let election = convert(electionInfo);
-    useEffect(() => {
-        election = convert(electionInfo);
-    }, [electionInfo]);
-
+    const election = electionData.filter(election => election.election_id === selectedElectionId)[0];
 
     return (
         <div className="w-full">
@@ -276,7 +203,7 @@ function ElectionOverview() {
                 <div className="flex flex-col gap-6">
                     <div className="flex flex-col gap-2">
                         <h4>Election Details</h4>
-                        <h1>{election.title}</h1>
+                        <h1>{getElectionString(election).title}</h1>
                         {/* TODO: Create a dictionary system, as referenced in this file's header. */}
                         <p className="mt-4">A general election and a special election are both types of elections, but they serve different purposes and occur under different circumstances.</p>
                     </div>
@@ -310,38 +237,36 @@ function ElectionOverview() {
 // Pulls the election id from the ElectionInfoContext.
 // TODO: use a combination of electionInfo and convert() to populate the options.
 function ElectionSelector() {
-    const { electionInfo, setElectionInfo } = useContext(ElectionInfoContext);
+    const { electionData, selectedElectionId, setSelectedElectionId } = useContext(ElectionInfoContext);
+
+    // Function to handle selection changes
+    const handleSelectionChange = (value: string) => {
+        const electionId = parseInt(value, 10);
+        setSelectedElectionId(electionId);
+    };
 
     return (
-        <Select defaultValue={electionInfo} value={electionInfo} onValueChange={(value: string) => setElectionInfo(value)}>
-          <SelectTrigger className="w-[277px]">
-            <SelectValue aria-label={electionInfo} >
-                {convert(electionInfo).selected_text}
-            </SelectValue>
-          </SelectTrigger>
-          <SelectContent>
-            <SelectGroup>
-              <SelectLabel>2023</SelectLabel>
-              <SelectItem value="2023-nov">November General</SelectItem>
-            </SelectGroup>
-            <SelectSeparator />
-            <SelectGroup>
-              <SelectLabel>2024</SelectLabel>
-              <SelectItem value="2024-feb">February Special</SelectItem>
-              <SelectItem value="2024-apr">April Special</SelectItem>
-              <SelectItem value="2024-aug" disabled>August Primary</SelectItem>
-              <SelectItem value="2024-nov" disabled>November General</SelectItem>
-            </SelectGroup>
-          </SelectContent>
+        <Select 
+            defaultValue={electionData.length > 0 ? electionData[0].election_id.toString() : ""}
+            onValueChange={handleSelectionChange}
+        >
+            <SelectTrigger className="w-[277px]">
+                <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+                {electionData.map((election) => (
+                    <SelectItem key={election.election_id} value={election.election_id.toString()}>
+                        {getElectionString(election).title}
+                    </SelectItem>
+                ))}
+            </SelectContent>
         </Select>
     );
 }
 
 
 
-
-
-// Currently unused
+// TODO: Currently unused
 export function ElectionWikiInfo() {
     return (
         // <p className="text-lg my-4">A general election and a special election are both types of elections, but they serve different purposes and occur under different circumstances.</p>
