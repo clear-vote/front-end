@@ -7,7 +7,7 @@ import {
      DialogContent,
      DialogTrigger,
 } from "@/components/ui/dialog"
-import { ContestDataContext } from '@/components/custom/elections'; // Import the ElectionInfoContext
+import { ElectionInfoContext, IElectionItem } from '@/components/custom/elections'; // Import the ElectionInfoContext
 import { Button } from '@/components/ui/button';
 
 
@@ -55,8 +55,24 @@ export interface ICandidate {
 }
 
 export default function Contests() {
-     const { contestData, setContestData } = useContext(ContestDataContext);
+     const { electionData, selectedElectionId } = useContext(ElectionInfoContext);
      // Ensure the component correctly handles rendering of contests
+
+     // Ensure electionData is loaded and not empty
+     if (!electionData || electionData.length === 0) {
+          return <div>Loading...</div>; // Or any other placeholder content
+     }
+     
+     // Filter the election data to find the matching election
+     const filteredElections = electionData.filter(election => election.election_id === selectedElectionId);
+     
+     // Check if there is at least one election that matches the selected ID
+     if (filteredElections.length === 0 || !filteredElections[0].contests) {
+          return <div>No contests found for the selected election.</div>;
+     }
+     
+     const contestData = filteredElections[0].contests;
+     
      return (
           <div className="flex flex-col gap-8">
                {contestData.map((contest, index) => (
