@@ -148,7 +148,7 @@ export default function Elections() {
     const longitude: number = 0;
 
     useEffect(() => { // Use useEffect to fetch data on component mount
-        const apiKey = process.env.AWS_API_KEY;
+        const apiKey = process.env.AWS_API_KEY || '';
         const url = `https://4qhxfecz53.execute-api.us-west-2.amazonaws.com/default/?latitude=${latitude}&longitude=${longitude}`;
 
         fetch(url, {
