@@ -6,6 +6,5 @@ With the repo cloned, make sure you first `cd next-app`, to make sure you're in 
 ### Tech stack
 Our tech stack uses Next.js, Vercel, and ShadcnUI.
 
-
 ### Adding shadcn components
 https://ui.shadcn.com/docs/components/

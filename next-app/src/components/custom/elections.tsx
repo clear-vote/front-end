@@ -135,30 +135,40 @@ export const UserContext = createContext<IUserContext>({
 ////////////////////////////////////////
 
 // <Elections> contains the election selector, overview, and contests.
+// <Elections> contains the election selector, overview, and contests.
 export default function Elections() {
     // Set the userId
     const [userId, setUserId] = useState(0);
     // Set for ALL retrieved election data
-    const [electionData, setElectionData] = useState(new Array<IElectionItem>);
+    const [electionData, setElectionData] = useState(new Array<IElectionItem>());
     // The selected election, which by default, is the most current one that is populated
     const [selectedElectionId, setSelectedElectionId] = useState(0);
 
+    const latitude: number = 0;
+    const longitude: number = 0;
 
-
-    // TODO: fetch json data from calling http://35.88.126.46/?longitude=0&latitude=0 here and set to contestData.json
     useEffect(() => { // Use useEffect to fetch data on component mount
-        fetch('http://35.88.126.46/?longitude=0&latitude=0')
-            .then(response => response.json())
-            .then(data => {
-                setElectionData(data);
-                const validElections = electionData.filter(election => election.contests.length > 0);
-                const latestElection = validElections.reduce((prev, current) => (prev.election_id > current.election_id) ? prev : current, validElections[0]);
-                if (latestElection.election_id !== 0) {
-                    setSelectedElectionId(latestElection.election_id); // TODO: remove this redundancy
-                }
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    }, [electionData]); // Empty dependency array to run only once
+        const apiKey = process.env.AWS_API_KEY;
+        const url = `https://4qhxfecz53.execute-api.us-west-2.amazonaws.com/default/?latitude=${latitude}&longitude=${longitude}`;
+
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'x-api-key': apiKey,
+                'Content-Type': 'application/json' // Assuming JSON data; adjust if otherwise
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            setElectionData(data);
+            const validElections = data.filter(election => election.contests.length > 0);
+            const latestElection = validElections.reduce((prev, current) => (prev.election_id > current.election_id) ? prev : current, validElections[0]);
+            if (latestElection && latestElection.election_id !== 0) {
+                setSelectedElectionId(latestElection.election_id); // Set the latest election ID
+            }
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    }, []); // Empty dependency array to run only once
 
     return (
         <div className="w-full">
@@ -167,13 +177,10 @@ export default function Elections() {
                 <ElectionOverview />
                 {/* UserContext needs to be put somewhere else—namely, somewhere it can affect <Map> in /ballot. */}
                 <UserContext.Provider value={{userId, setUserId}}> 
-                    {/* <ContestDataContext.Provider value={{contestData, setContestData}}> */}
                     <PinnedCandidates />
                     <Contests />
-                    {/* </ContestDataContext.Provider> */}
                 </UserContext.Provider>
             </ElectionInfoContext.Provider>
-
         </div>
     );
 };
