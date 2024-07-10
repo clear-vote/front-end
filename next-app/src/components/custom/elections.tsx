@@ -159,9 +159,9 @@ export default function Elections() {
             }
         })
         .then(response => response.json())
-        .then(data => {
+        .then((data: IElectionItem[]) => { // Explicitly type 'data' as an array of IElectionItem
             setElectionData(data);
-            const validElections = data.filter(election => election.contests.length > 0);
+            const validElections = data.filter((election: IElectionItem) => election.contests.length > 0);
             const latestElection = validElections.reduce((prev, current) => (prev.election_id > current.election_id) ? prev : current, validElections[0]);
             if (latestElection && latestElection.election_id !== 0) {
                 setSelectedElectionId(latestElection.election_id); // Set the latest election ID
