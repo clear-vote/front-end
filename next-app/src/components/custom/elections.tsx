@@ -148,7 +148,7 @@ export default function Elections() {
     const longitude: number = 0;
 
     useEffect(() => { // Use useEffect to fetch data on component mount
-        const apiKey = process.env.AWS_API_KEY;
+        const apiKey = process.env.AWS_API_KEY || '';
         const url = `https://4qhxfecz53.execute-api.us-west-2.amazonaws.com/default/?latitude=${latitude}&longitude=${longitude}`;
 
         fetch(url, {
@@ -159,9 +159,9 @@ export default function Elections() {
             }
         })
         .then(response => response.json())
-        .then(data => {
+        .then((data: IElectionItem[]) => { // Explicitly type 'data' as an array of IElectionItem
             setElectionData(data);
-            const validElections = data.filter(election => election.contests.length > 0);
+            const validElections = data.filter((election: IElectionItem) => election.contests.length > 0);
             const latestElection = validElections.reduce((prev, current) => (prev.election_id > current.election_id) ? prev : current, validElections[0]);
             if (latestElection && latestElection.election_id !== 0) {
                 setSelectedElectionId(latestElection.election_id); // Set the latest election ID
