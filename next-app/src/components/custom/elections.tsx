@@ -1,10 +1,10 @@
 'use client'
 import { createContext, useContext, useState, Dispatch, SetStateAction, useEffect } from 'react';
-import { IContest } from '@/components/custom/contests';
+import { IContest } from './contests';
 
 import '@/app/styles.css';
 import { Separator } from "@radix-ui/react-separator"
-import { Button } from "@/components/ui/button"
+import { Button } from "../ui/button"
 import {
     Dialog,
     DialogContent,
@@ -13,7 +13,7 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-  } from "@/components/ui/dialog"
+  } from "../ui/dialog"
 import {
     Select,
     SelectContent,
@@ -23,12 +23,10 @@ import {
     SelectGroup,
     SelectLabel,
     SelectSeparator,
-  } from "@/components/ui/select"
+  } from "../ui/select"
 
 import PinnedCandidates from './pinned-candidates';
 import Contests from "./contests"
-
-import conversions from '@/lib/data/contestConversion.json'
 
 
 /// ============================================
@@ -201,8 +199,7 @@ function getElectionString(election: IElectionItem) {
 // TODO: we can get some more context here about the date
 function ElectionOverview() {
     const { electionData, selectedElectionId } = useContext(ElectionInfoContext);
-
-    const election = electionData.filter(election => election.election_id === selectedElectionId)[0];
+    const election = Array.from(electionData).filter(election => election.election_id === selectedElectionId)[0];
 
     return (
         <div className="w-full">
@@ -261,7 +258,7 @@ function ElectionSelector() {
                 <SelectValue />
             </SelectTrigger>
             <SelectContent>
-                {electionData.map((election) => (
+                {Array.from(electionData).map((election) => (
                     <SelectItem key={election.election_id} value={election.election_id.toString()}>
                         {getElectionString(election).title}
                     </SelectItem>

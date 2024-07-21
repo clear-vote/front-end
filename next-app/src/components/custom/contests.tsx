@@ -6,9 +6,9 @@ import {
      Dialog,
      DialogContent,
      DialogTrigger,
-} from "@/components/ui/dialog"
-import { ElectionInfoContext, IElectionItem } from '@/components/custom/elections'; // Import the ElectionInfoContext
-import { Button } from '@/components/ui/button';
+} from "../ui/dialog"
+import { ElectionInfoContext, IElectionItem } from '../custom/elections'; // Import the ElectionInfoContext
+import { Button } from '../ui/button';
 
 
 /// ============================================
@@ -64,7 +64,8 @@ export default function Contests() {
      }
      
      // Filter the election data to find the matching election
-     const filteredElections = electionData.filter(election => election.election_id === selectedElectionId);
+     const electionArray : any[] = Array.from(electionData);
+     const filteredElections = electionArray.filter(election => election.election_id === selectedElectionId);
      
      // Check if there is at least one election that matches the selected ID
      if (filteredElections.length === 0 || !filteredElections[0].contests) {
